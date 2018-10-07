@@ -1,38 +1,52 @@
-﻿using System;
+﻿using BackEndBookShop.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BackEndBookShop.Models;
 
 namespace BackEndBookShop.Controllers
 {
     public class CategoriesController : Controller
     {
         private BookShopContext db = new BookShopContext();
-
         // GET: Categories
-        public ActionResult Index()
+        public ActionResult Index(string searchString = "", int ID = -1 )
         {
-            return View(db.Categories.ToList());
+            
+            // get list of category
+            var listCategory = (from c in db.Categories
+                                select c).ToList();
+            ViewBag.listCategory = listCategory;
+
+            // get all books of category
+            // ID = -1 get books of all category
+            var allBooks = new List<Book>();
+            if (ID == -1)
+            {
+                allBooks = (db.Books.Where(b => (b.Name.Contains(searchString)))).ToList();
+            }
+            else
+            {
+                allBooks = (db.Books.Where(b => (b.CategoryID == ID && b.Name.Contains(searchString)))).ToList();
+            }
+            
+            ViewBag.allBooks = allBooks;
+
+            // get selected list of category
+            List<SelectListItem> selectListItems = new List<SelectListItem>();
+            foreach (Category cate in db.Categories)
+            {
+                selectListItems.Add(new SelectListItem {Text=cate.Name,Value=Convert.ToString(cate.ID) });
+            }
+            ViewBag.categoryID = new SelectList(selectListItems,"Value","Text",-1);
+            return View();
         }
 
         // GET: Categories/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Category category = db.Categories.Find(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
+            return View();
         }
 
         // GET: Categories/Create
@@ -42,86 +56,63 @@ namespace BackEndBookShop.Controllers
         }
 
         // POST: Categories/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name")] Category category)
+        public ActionResult Create(FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Categories.Add(category);
-                db.SaveChanges();
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
-
-            return View(category);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Categories/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Category category = db.Categories.Find(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
+            return View();
         }
 
         // POST: Categories/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name")] Category category)
+        public ActionResult Edit(int id, FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(category).State = EntityState.Modified;
-                db.SaveChanges();
+                // TODO: Add update logic here
+
                 return RedirectToAction("Index");
             }
-            return View(category);
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Categories/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Category category = db.Categories.Find(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
+            return View();
         }
 
         // POST: Categories/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
         {
-            Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            try
             {
-                db.Dispose();
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
+            catch
+            {
+                return View();
+            }
         }
     }
 }

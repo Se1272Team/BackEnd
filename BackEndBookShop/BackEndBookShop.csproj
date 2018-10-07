@@ -153,12 +153,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AuthorsController.cs" />
-    <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\AuthorsAdminController.cs" />
+    <Compile Include="Controllers\BooksAdminController.cs" />
+    <Compile Include="Controllers\CategoriesAdminController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PublishersController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\PublishersAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,6 +178,18 @@
     <Compile Include="Migrations\201810021225036_Thanh.Designer.cs">
       <DependentUpon>201810021225036_Thanh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810031258077_changePage.cs" />
+    <Compile Include="Migrations\201810031258077_changePage.Designer.cs">
+      <DependentUpon>201810031258077_changePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810040416060_SuaQuantity.cs" />
+    <Compile Include="Migrations\201810040416060_SuaQuantity.Designer.cs">
+      <DependentUpon>201810040416060_SuaQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810040422267_quantityNullable.cs" />
+    <Compile Include="Migrations\201810040422267_quantityNullable.Designer.cs">
+      <DependentUpon>201810040422267_quantityNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -191,6 +203,119 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FrontEndRef\contactform\contactform.js" />
+    <Content Include="Content\FrontEndRef\contactform\Readme.txt" />
+    <Content Include="Content\FrontEndRef\css\main.css" />
+    <Content Include="Content\FrontEndRef\css\scss-files.txt" />
+    <Content Include="Content\FrontEndRef\css\style.css" />
+    <Content Include="Content\FrontEndRef\img\about-bg.jpg" />
+    <Content Include="Content\FrontEndRef\img\about-mission.jpg" />
+    <Content Include="Content\FrontEndRef\img\about-plan.jpg" />
+    <Content Include="Content\FrontEndRef\img\about-vision.jpg" />
+    <Content Include="Content\FrontEndRef\img\apple-touch-icon.png" />
+    <Content Include="Content\FrontEndRef\img\bia-sau-quang-ganh-lo-d--600x851.jpg" />
+    <Content Include="Content\FrontEndRef\img\bia-truoc-quang-ganh-lo-di.jpg" />
+    <Content Include="Content\FrontEndRef\img\book.jpg" />
+    <Content Include="Content\FrontEndRef\img\book2.jpg" />
+    <Content Include="Content\FrontEndRef\img\call-to-action-bg.jpg" />
+    <Content Include="Content\FrontEndRef\img\celebrity.jpg" />
+    <Content Include="Content\FrontEndRef\img\clients\client-1.png" />
+    <Content Include="Content\FrontEndRef\img\clients\client-2.png" />
+    <Content Include="Content\FrontEndRef\img\clients\client-3.png" />
+    <Content Include="Content\FrontEndRef\img\clients\client-4.png" />
+    <Content Include="Content\FrontEndRef\img\clients\client-5.png" />
+    <Content Include="Content\FrontEndRef\img\clients\client-6.png" />
+    <Content Include="Content\FrontEndRef\img\clients\client-7.png" />
+    <Content Include="Content\FrontEndRef\img\clients\client-8.png" />
+    <Content Include="Content\FrontEndRef\img\co-mai-phuong.png" />
+    <Content Include="Content\FrontEndRef\img\co-miss-hoa.png" />
+    <Content Include="Content\FrontEndRef\img\customer-comment.jpg" />
+    <Content Include="Content\FrontEndRef\img\dale-carnegie.jpg" />
+    <Content Include="Content\FrontEndRef\img\event-press.jpg" />
+    <Content Include="Content\FrontEndRef\img\facts-bg.jpg" />
+    <Content Include="Content\FrontEndRef\img\facts-img.png" />
+    <Content Include="Content\FrontEndRef\img\favicon.png" />
+    <Content Include="Content\FrontEndRef\img\intro-carousel\1.jpg" />
+    <Content Include="Content\FrontEndRef\img\intro-carousel\2.jpg" />
+    <Content Include="Content\FrontEndRef\img\intro-carousel\3.jpg" />
+    <Content Include="Content\FrontEndRef\img\intro-carousel\4.jpg" />
+    <Content Include="Content\FrontEndRef\img\intro-carousel\5.jpg" />
+    <Content Include="Content\FrontEndRef\img\mo-ta-sach-img.jpg" />
+    <Content Include="Content\FrontEndRef\img\mua-ngay-sach.jpg" />
+    <Content Include="Content\FrontEndRef\img\muc-luc-quang-ganh-lo-di-1.jpg" />
+    <Content Include="Content\FrontEndRef\img\muc-luc-quang-ganh-lo-di-2.jpg" />
+    <Content Include="Content\FrontEndRef\img\muc-luc-quang-ganh-lo-di-3.jpg" />
+    <Content Include="Content\FrontEndRef\img\portfolio\app1.jpg" />
+    <Content Include="Content\FrontEndRef\img\portfolio\app2.jpg" />
+    <Content Include="Content\FrontEndRef\img\portfolio\app3.jpg" />
+    <Content Include="Content\FrontEndRef\img\portfolio\card1.jpg" />
+    <Content Include="Content\FrontEndRef\img\portfolio\card2.jpg" />
+    <Content Include="Content\FrontEndRef\img\portfolio\card3.jpg" />
+    <Content Include="Content\FrontEndRef\img\portfolio\web1.jpg" />
+    <Content Include="Content\FrontEndRef\img\portfolio\web2.jpg" />
+    <Content Include="Content\FrontEndRef\img\portfolio\web3.jpg" />
+    <Content Include="Content\FrontEndRef\img\preloader.gif" />
+    <Content Include="Content\FrontEndRef\img\quote-sign-left.png" />
+    <Content Include="Content\FrontEndRef\img\quote-sign-right.png" />
+    <Content Include="Content\FrontEndRef\img\team-1.jpg" />
+    <Content Include="Content\FrontEndRef\img\team-2.jpg" />
+    <Content Include="Content\FrontEndRef\img\team-3.jpg" />
+    <Content Include="Content\FrontEndRef\img\team-4.jpg" />
+    <Content Include="Content\FrontEndRef\img\testimonial-1.jpg" />
+    <Content Include="Content\FrontEndRef\img\testimonial-2.jpg" />
+    <Content Include="Content\FrontEndRef\img\testimonial-3.jpg" />
+    <Content Include="Content\FrontEndRef\img\testimonial-4.jpg" />
+    <Content Include="Content\FrontEndRef\img\testimonial-5.jpg" />
+    <Content Include="Content\FrontEndRef\img\thay-kim-tuan-toeic-chuan.jpg" />
+    <Content Include="Content\FrontEndRef\js\carousel.js" />
+    <Content Include="Content\FrontEndRef\js\main.js" />
+    <Content Include="Content\FrontEndRef\lib\animate\animate.css" />
+    <Content Include="Content\FrontEndRef\lib\animate\animate.min.css" />
+    <Content Include="Content\FrontEndRef\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\FrontEndRef\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\FrontEndRef\lib\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\FrontEndRef\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\FrontEndRef\lib\counterup\counterup.min.js" />
+    <Content Include="Content\FrontEndRef\lib\easing\easing.js" />
+    <Content Include="Content\FrontEndRef\lib\easing\easing.min.js" />
+    <Content Include="Content\FrontEndRef\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\FrontEndRef\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\FrontEndRef\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\FrontEndRef\lib\ionicons\css\ionicons.css" />
+    <Content Include="Content\FrontEndRef\lib\ionicons\css\ionicons.min.css" />
+    <Content Include="Content\FrontEndRef\lib\ionicons\fonts\ionicons.svg" />
+    <Content Include="Content\FrontEndRef\lib\isotope\isotope.pkgd.js" />
+    <Content Include="Content\FrontEndRef\lib\isotope\isotope.pkgd.min.js" />
+    <Content Include="Content\FrontEndRef\lib\jquery\jquery-migrate.min.js" />
+    <Content Include="Content\FrontEndRef\lib\jquery\jquery.min.js" />
+    <Content Include="Content\FrontEndRef\lib\lightbox\css\lightbox.css" />
+    <Content Include="Content\FrontEndRef\lib\lightbox\css\lightbox.min.css" />
+    <Content Include="Content\FrontEndRef\lib\lightbox\images\close.png" />
+    <Content Include="Content\FrontEndRef\lib\lightbox\images\loading.gif" />
+    <Content Include="Content\FrontEndRef\lib\lightbox\images\next.png" />
+    <Content Include="Content\FrontEndRef\lib\lightbox\images\prev.png" />
+    <Content Include="Content\FrontEndRef\lib\lightbox\js\lightbox.js" />
+    <Content Include="Content\FrontEndRef\lib\lightbox\js\lightbox.min.js" />
+    <Content Include="Content\FrontEndRef\lib\lightbox\links.php" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="Content\FrontEndRef\lib\superfish\hoverIntent.js" />
+    <Content Include="Content\FrontEndRef\lib\superfish\superfish.js" />
+    <Content Include="Content\FrontEndRef\lib\superfish\superfish.min.js" />
+    <Content Include="Content\FrontEndRef\lib\touchSwipe\jquery.touchSwipe.js" />
+    <Content Include="Content\FrontEndRef\lib\touchSwipe\jquery.touchSwipe.min.js" />
+    <Content Include="Content\FrontEndRef\lib\waypoints\links.php" />
+    <Content Include="Content\FrontEndRef\lib\waypoints\waypoints.min.js" />
+    <Content Include="Content\FrontEndRef\lib\wow\wow.js" />
+    <Content Include="Content\FrontEndRef\lib\wow\wow.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FrontEndRef\contactform\contactform.js" />
@@ -308,6 +433,27 @@
     <Content Include="FrontEndRef\lib\wow\wow.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\02dbfd3be78f0e594cf8168a0796c5a5.jpg" />
+    <Content Include="Image\16f624b425072de8f0c56c0f37011fe0.jpg" />
+    <Content Include="Image\5767c529c1be553162b8d989380dc96a.jpg" />
+    <Content Include="Image\620844afd861aa5c4ff7f58054209a29.jpg" />
+    <Content Include="Image\6dcd826688280f888bec7b32b51794c9.jpg" />
+    <Content Include="Image\9ef4d654395ddd845d3137abf5c3fee2.jpg" />
+    <Content Include="Image\bat-tre-dong-xanh.u5465.d20170911.t133430.594678.jpg" />
+    <Content Include="Image\bfebf4adcb31c8eb5c39fd3779cc4b68.jpg" />
+    <Content Include="Image\f8e1782b8469c72463e40c4f430792a8.jpg" />
+    <Content Include="Image\fde929e149ca9f351f779ee23cf872d6.jpg" />
+    <Content Include="Image\giet-con-chim-nhai_2_2.jpg" />
+    <Content Include="Image\hinh.u4939.d20171020.t165038.91274.jpg" />
+    <Content Include="Image\hop-bc1.png" />
+    <Content Include="Image\img117.u3059.d20170616.t100547.729023.jpg" />
+    <Content Include="Image\img894.u3059.d20170616.t102330.519090.jpg" />
+    <Content Include="Image\khi-hoi-tho-hoa-thinh-khong.u5464.d20170726.t170655.288851.jpg" />
+    <Content Include="Image\khuyen-hoc.jpg" />
+    <Content Include="Image\ngu-that-lau-yeu-that-sau.u5869.d20171030.t144804.311452.jpg" />
+    <Content Include="Image\sao_trong_mat_le_hoang_1.jpg" />
+    <Content Include="Image\su-im-lang-cua-bay-cuu.u5465.d20170914.t112554.501099.jpg" />
+    <Content Include="Image\that-tich-khong-mua-a.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -322,6 +468,15 @@
     <Content Include="FrontEndRef\lib\ionicons\fonts\ionicons.ttf" />
     <Content Include="FrontEndRef\lib\ionicons\fonts\ionicons.woff" />
     <Content Include="FrontEndRef\lib\owlcarousel\LICENSE" />
+    <Content Include="Content\FrontEndRef\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\FrontEndRef\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\FrontEndRef\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\FrontEndRef\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\FrontEndRef\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\FrontEndRef\lib\ionicons\fonts\ionicons.eot" />
+    <Content Include="Content\FrontEndRef\lib\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Content\FrontEndRef\lib\ionicons\fonts\ionicons.woff" />
+    <Content Include="Content\FrontEndRef\lib\owlcarousel\LICENSE" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -347,28 +502,28 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Categories\Create.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\Books\Create.cshtml" />
-    <Content Include="Views\Books\Delete.cshtml" />
-    <Content Include="Views\Books\Details.cshtml" />
-    <Content Include="Views\Books\Edit.cshtml" />
-    <Content Include="Views\Books\Index.cshtml" />
-    <Content Include="Views\Authors\Create.cshtml" />
-    <Content Include="Views\Authors\Delete.cshtml" />
-    <Content Include="Views\Authors\Details.cshtml" />
-    <Content Include="Views\Authors\Edit.cshtml" />
-    <Content Include="Views\Authors\Index.cshtml" />
-    <Content Include="Views\Publishers\Create.cshtml" />
-    <Content Include="Views\Publishers\Delete.cshtml" />
-    <Content Include="Views\Publishers\Details.cshtml" />
-    <Content Include="Views\Publishers\Edit.cshtml" />
-    <Content Include="Views\Publishers\Index.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Create.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Delete.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Details.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Edit.cshtml" />
+    <Content Include="Views\CategoriesAdmin\Index.cshtml" />
+    <Content Include="Views\BooksAdmin\Create.cshtml" />
+    <Content Include="Views\BooksAdmin\Delete.cshtml" />
+    <Content Include="Views\BooksAdmin\Details.cshtml" />
+    <Content Include="Views\BooksAdmin\Edit.cshtml" />
+    <Content Include="Views\BooksAdmin\Index.cshtml" />
+    <Content Include="Views\AuthorsAdmin\Create.cshtml" />
+    <Content Include="Views\AuthorsAdmin\Delete.cshtml" />
+    <Content Include="Views\AuthorsAdmin\Details.cshtml" />
+    <Content Include="Views\AuthorsAdmin\Edit.cshtml" />
+    <Content Include="Views\AuthorsAdmin\Index.cshtml" />
+    <Content Include="Views\PublishersAdmin\Create.cshtml" />
+    <Content Include="Views\PublishersAdmin\Delete.cshtml" />
+    <Content Include="Views\PublishersAdmin\Details.cshtml" />
+    <Content Include="Views\PublishersAdmin\Edit.cshtml" />
+    <Content Include="Views\PublishersAdmin\Index.cshtml" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -398,6 +553,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810021225036_Thanh.resx">
       <DependentUpon>201810021225036_Thanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810031258077_changePage.resx">
+      <DependentUpon>201810031258077_changePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810040416060_SuaQuantity.resx">
+      <DependentUpon>201810040416060_SuaQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810040422267_quantityNullable.resx">
+      <DependentUpon>201810040422267_quantityNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

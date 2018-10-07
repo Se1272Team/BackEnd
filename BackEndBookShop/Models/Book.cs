@@ -26,11 +26,11 @@ namespace BackEndBookShop.Models
         public int PulisherID { get; set; }
         public virtual Publisher Publisher { get; set; }
 
-        public int NumOfPages { get; set; }
+        public int? NumOfPages { get; set; }
         public string Intro { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
         public float Price { get; set; }
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
     }
 }

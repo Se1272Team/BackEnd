@@ -198,3 +198,6 @@ D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEn
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.csproj.CopyComplete
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.dll
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.pdb
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.changePage.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.SuaQuantity.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.quantityNullable.resources

@@ -10,6 +10,7 @@ namespace BackEndBookShop.Models
         public Category()
         {
             Books = new HashSet<Book>();
+            
         }
         public int ID { get; set; }
         public string Name { get; set; }
