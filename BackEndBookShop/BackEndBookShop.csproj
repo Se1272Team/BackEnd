@@ -155,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthorsAdminController.cs" />
     <Compile Include="Controllers\BooksAdminController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CategoriesAdminController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -190,6 +191,14 @@
     <Compile Include="Migrations\201810040422267_quantityNullable.cs" />
     <Compile Include="Migrations\201810040422267_quantityNullable.Designer.cs">
       <DependentUpon>201810040422267_quantityNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810080256039_addCreatedDate.cs" />
+    <Compile Include="Migrations\201810080256039_addCreatedDate.Designer.cs">
+      <DependentUpon>201810080256039_addCreatedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810080304064_changeCreatedDate.cs" />
+    <Compile Include="Migrations\201810080304064_changeCreatedDate.Designer.cs">
+      <DependentUpon>201810080304064_changeCreatedDate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
@@ -525,6 +534,7 @@
     <Content Include="Views\PublishersAdmin\Index.cshtml" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -563,6 +573,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810040422267_quantityNullable.resx">
       <DependentUpon>201810040422267_quantityNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810080256039_addCreatedDate.resx">
+      <DependentUpon>201810080256039_addCreatedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810080304064_changeCreatedDate.resx">
+      <DependentUpon>201810080304064_changeCreatedDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

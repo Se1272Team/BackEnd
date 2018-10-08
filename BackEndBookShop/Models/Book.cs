@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace BackEndBookShop.Models
 {
-    public class Book
+    public class Book : EntityBase
     {
         public Book()
         {
@@ -32,5 +33,12 @@ namespace BackEndBookShop.Models
         public string Image { get; set; }
         public float Price { get; set; }
         public int? Quantity { get; set; }
+
+    }
+
+    public abstract class EntityBase
+    {
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime CreatedUtc { get; set; }
     }
 }

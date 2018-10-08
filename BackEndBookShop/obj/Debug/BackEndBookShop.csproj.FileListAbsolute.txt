@@ -201,3 +201,5 @@ D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEn
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.changePage.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.SuaQuantity.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.quantityNullable.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.addCreatedDate.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.changeCreatedDate.resources
