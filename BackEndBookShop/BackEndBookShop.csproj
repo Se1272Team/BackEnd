@@ -200,6 +200,26 @@
     <Compile Include="Migrations\201810080304064_changeCreatedDate.Designer.cs">
       <DependentUpon>201810080304064_changeCreatedDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810081014237_changeToLocalDate.cs" />
+    <Compile Include="Migrations\201810081014237_changeToLocalDate.Designer.cs">
+      <DependentUpon>201810081014237_changeToLocalDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810081021525_addPublishDate.cs" />
+    <Compile Include="Migrations\201810081021525_addPublishDate.Designer.cs">
+      <DependentUpon>201810081021525_addPublishDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810081023276_ChangepublishDateDefault.cs" />
+    <Compile Include="Migrations\201810081023276_ChangepublishDateDefault.Designer.cs">
+      <DependentUpon>201810081023276_ChangepublishDateDefault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810081027140_chagneDate.cs" />
+    <Compile Include="Migrations\201810081027140_chagneDate.Designer.cs">
+      <DependentUpon>201810081027140_chagneDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810081047081_adf.cs" />
+    <Compile Include="Migrations\201810081047081_adf.Designer.cs">
+      <DependentUpon>201810081047081_adf.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
@@ -579,6 +599,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810080304064_changeCreatedDate.resx">
       <DependentUpon>201810080304064_changeCreatedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810081014237_changeToLocalDate.resx">
+      <DependentUpon>201810081014237_changeToLocalDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810081021525_addPublishDate.resx">
+      <DependentUpon>201810081021525_addPublishDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810081023276_ChangepublishDateDefault.resx">
+      <DependentUpon>201810081023276_ChangepublishDateDefault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810081027140_chagneDate.resx">
+      <DependentUpon>201810081027140_chagneDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810081047081_adf.resx">
+      <DependentUpon>201810081047081_adf.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -203,3 +203,8 @@ D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEn
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.quantityNullable.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.addCreatedDate.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.changeCreatedDate.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.changeToLocalDate.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.addPublishDate.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.ChangepublishDateDefault.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.chagneDate.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BackEndBookShop\obj\Debug\BackEndBookShop.Migrations.adf.resources

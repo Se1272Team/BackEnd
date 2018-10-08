@@ -14,6 +14,7 @@ namespace BackEndBookShop.Controllers
         // GET: Books
         public ActionResult Index(int? id)
         {
+            // get book
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -23,6 +24,12 @@ namespace BackEndBookShop.Controllers
             {
                 return HttpNotFound();
             }
+            // get sach cung the loai
+            int idCategory = db.Books.Find(id).CategoryID;
+            var sameCateBooks = (from b in db.Books
+                                 where b.CategoryID == idCategory
+                                 select b).Take(6);
+            ViewBag.sameCateBooks = sameCateBooks.ToList();
             return View(book);
         }
     }

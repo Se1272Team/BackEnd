@@ -12,6 +12,7 @@ namespace BackEndBookShop.Models
         public Book()
         {
             this.Authors = new HashSet<Author>();
+            publishDate = new DateTime(2018, 05, 01);
         }
         
         public int ID { get; set; }
@@ -33,12 +34,13 @@ namespace BackEndBookShop.Models
         public string Image { get; set; }
         public float Price { get; set; }
         public int? Quantity { get; set; }
+        public DateTime publishDate { get; set; }
 
     }
 
     public abstract class EntityBase
     {
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedUtc { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

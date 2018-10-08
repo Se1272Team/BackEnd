@@ -4,6 +4,8 @@
 @{
     Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
+
+@*Hình và mua hàng*@
 <section class="my-3 py-3" style="margin-top: 50px">
     <div class="container">
         <div class="row">
@@ -59,6 +61,7 @@
     </div>
 </section>
 
+@*Thông tin chi tiết sản phẩm*@
 <section class="my-3 py-3">
     <div class="container">
         <h4>THÔNG TIN CHI TIẾT</h4>
@@ -74,7 +77,7 @@
                     @*Chua lam*@
                     <tr>
                         <td>Ngày xuất bản</td>
-                        <td>10-2017</td>
+                        <td>@Model.publishDate.Month - @Model.publishDate.Year</td>
                     </tr>
                     <tr>
                         <td>Nhà xuất bản</td>
@@ -97,6 +100,7 @@
     </div>
 </section>
 
+@*Giới thiệu sản phâm*@
 <section class="my-3 py-3">
     <div class="container">
         <h4>GIỚI THIỆU SÁCH</h4>
@@ -109,63 +113,32 @@
     </div>
 </section>
 
+@*Sách cùng thể loại*@
 <section class="my-3 py-3">
     <div class="container">
-        <h4>GIỚI THIỆU SÁCH</h4>
+        <h4>SÁCH CÙNG THỂ LOẠI</h4>
         <div class="row">
             <div class="carousel-book-categiries owl-carousel owl-theme">
-                <div class="card">
-                    <img class="card-img-top" src="../Content/FrontEndRef/img/book.jpg" alt="Card image cap">
-                    <div class="card-body card-body-book-category">
-                        <h6 class="book-category text-center">Sach tieng Anh tieu hoc</h6>
-                        <p class="product-quantity text-center">71 SAN PHAM</p>
-                    </div>
-                </div>
+                @foreach (var item in ViewBag.sameCateBooks)
+                {
 
-                <div class="card">
-                    <img class="card-img-top" src="../Content/FrontEndRef/img/book.jpg" alt="Card image cap">
-                    <div class="card-body card-body-book-category">
-                        <h6 class="book-category text-center">Sach tieng Anh tieu hoc</h6>
-                        <p class="product-quantity text-center">71 SAN PHAM</p>
+                    <div class="card">
+                        <a href="/Books?id=@item.ID">
+                            <img class="card-img-top" src="../Image/@item.Image" alt="Card image cap">
+                        </a>
+                        <div class="card-body card-body-book-category">
+                            <h6 class="book-category text-center">@item.Name</h6>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <img class="card-img-top" src="../Content/FrontEndRef/img/book.jpg" alt="Card image cap">
-                    <div class="card-body card-body-book-category">
-                        <h6 class="book-category text-center">Sach tieng Anh tieu hoc</h6>
-                        <p class="product-quantity text-center">71 SAN PHAM</p>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <img class="card-img-top" src="../Content/FrontEndRef/img/book.jpg" alt="Card image cap">
-                    <div class="card-body card-body-book-category">
-                        <h6 class="book-category text-center">Sach tieng Anh tieu hoc</h6>
-                        <p class="product-quantity text-center">71 SAN PHAM</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img class="card-img-top" src="../Content/FrontEndRef/img/book.jpg" alt="Card image cap">
-                    <div class="card-body card-body-book-category">
-                        <h6 class="book-category text-center">Sach tieng Anh tieu hoc</h6>
-                        <p class="product-quantity text-center">71 SAN PHAM</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img class="card-img-top" src="../Content/FrontEndRef/img/book.jpg" alt="Card image cap">
-                    <div class="card-body card-body-book-category">
-                        <h6 class="book-category text-center">Sach tieng Anh tieu hoc</h6>
-                        <p class="product-quantity text-center">71 SAN PHAM</p>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
 </section>
 
+@*Hỏi đáp về sản phẩm*@
 <section class="my-3 py-3">
     <div class="container">
         <h4>HỎI, ĐÁP VỀ SẢN PHẨM</h4>
@@ -189,6 +162,7 @@
     </div>
 </section>
 
+@*Nhận xét của khách hàng*@
 <section class="my-3 py-3" style="font-size: 0.9em;">
     <div class="container">
         <h4>KHÁCH HÀNG NHẬN XÉT</h4>
