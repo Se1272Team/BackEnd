@@ -2,62 +2,77 @@
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
+    Layout = "/Views/Shared/_LayoutLogin.cshtml";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+<!-- begin #page-loader -->
+<div id="page-loader" class="fade show"><span class="spinner"></span></div>
+<!-- end #page-loader -->
+<!-- begin #page-container -->
+<div id="page-container" class="fade">
+    <!-- begin login -->
+    <div class="login login-with-news-feed">
+        <!-- begin news-feed -->
+        <div class="news-feed">
+            <div class="news-image" style="background-image: url(../Content/LoginRef/assets/img/login-bg/login-bg-11.jpg)"></div>
+            <div class="news-caption">
+                <h4 class="caption-title"><b>Color</b> Admin App</h4>
+                <p>
+                    Download the Color Admin app for iPhone®, iPad®, and Android™. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+        </div>
+        <!-- end news-feed -->
+        <!-- begin right-content -->
+        <div class="right-content">
+            <!-- begin login-header -->
+            <div class="login-header">
+                <div class="brand">
+                    <span class="logo"></span> <b>Color</b> Admin
+                    <small>responsive bootstrap 3 admin template</small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-sign-in"></i>
+                </div>
+            </div>
+            <!-- end login-header -->
+            <!-- begin login-content -->
+            <div class="login-content">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "margin-bottom-0", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    <div class="form-group m-b-15">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-lg", required = "required", placeholder = "Email Address" })
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    <div class="form-group m-b-15">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-lg", required = "required", placeholder = "Password" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-</div>
+                    <div class="checkbox checkbox-css m-b-30">
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                        <input type="checkbox" id="remember_me_checkbox" name="RememberMe" />
+                        <label for="remember_me_checkbox">
+                            Remember Me
+                        </label>
+                    </div>
+                    <div class="login-buttons">
+                        <button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
+                    </div>
+                    <div class="m-t-20 m-b-40 p-b-40 text-inverse">
+                        Not a member yet? Click <a href="@Url.Action("Register","Account")" class="text-success">here</a> to register.
+                    </div>
+                    <hr />
+                    <p class="text-center text-grey-darker">
+                        &copy; Color Admin All Right Reserved 2018
+                    </p>
+                }
+
+            </div>
+            <!-- end login-content -->
+        </div>
+        <!-- end right-container -->
+    </div>
+    <!-- end login -->
+</div>

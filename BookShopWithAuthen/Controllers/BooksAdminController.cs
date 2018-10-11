@@ -10,6 +10,7 @@ using BookShopWithAuthen.Models;
 
 namespace BookShopWithAuthen.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class BooksAdminController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -241,3 +241,7 @@ D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\Web
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.InitialCreate.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.GenerateResource.cache
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.FirstMigration.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.addFieldToUser.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.changeStatus.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.addFieldRegister.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.changeField.resources
