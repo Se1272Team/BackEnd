@@ -195,16 +195,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AuthorsAdminController.cs" />
-    <Compile Include="Controllers\BooksAdminController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
-    <Compile Include="Controllers\CategoriesAdminController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageBookController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PublishersAdminController.cs" />
-    <Compile Include="Domain\SearchCategoryModel.cs" />
+    <Compile Include="Helpers\ShoppingCart.cs" />
+    <Compile Include="Migrations\201810140703172_addcart.cs" />
+    <Compile Include="Migrations\201810140703172_addcart.Designer.cs">
+      <DependentUpon>201810140703172_addcart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810150711125_ThichThiCheck.cs" />
+    <Compile Include="Migrations\201810150711125_ThichThiCheck.Designer.cs">
+      <DependentUpon>201810150711125_ThichThiCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartDetail.cs" />
+    <Compile Include="ViewModel\SearchCategoryModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -232,6 +237,10 @@
     <Compile Include="Migrations\201810110139485_changeField.Designer.cs">
       <DependentUpon>201810110139485_changeField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810140239223_addOrders.cs" />
+    <Compile Include="Migrations\201810140239223_addOrders.Designer.cs">
+      <DependentUpon>201810140239223_addOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -239,6 +248,8 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Publisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -900,34 +911,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\AuthorsAdmin\Create.cshtml" />
-    <Content Include="Views\AuthorsAdmin\Delete.cshtml" />
-    <Content Include="Views\AuthorsAdmin\Details.cshtml" />
-    <Content Include="Views\AuthorsAdmin\Edit.cshtml" />
-    <Content Include="Views\AuthorsAdmin\Index.cshtml" />
-    <Content Include="Views\BooksAdmin\Create.cshtml" />
-    <Content Include="Views\BooksAdmin\Delete.cshtml" />
-    <Content Include="Views\BooksAdmin\Details.cshtml" />
-    <Content Include="Views\BooksAdmin\Edit.cshtml" />
-    <Content Include="Views\BooksAdmin\Index.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
-    <Content Include="Views\CategoriesAdmin\Create.cshtml" />
-    <Content Include="Views\CategoriesAdmin\Delete.cshtml" />
-    <Content Include="Views\CategoriesAdmin\Details.cshtml" />
-    <Content Include="Views\CategoriesAdmin\Edit.cshtml" />
-    <Content Include="Views\CategoriesAdmin\Index.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\PublishersAdmin\Create.cshtml" />
-    <Content Include="Views\PublishersAdmin\Delete.cshtml" />
-    <Content Include="Views\PublishersAdmin\Details.cshtml" />
-    <Content Include="Views\PublishersAdmin\Edit.cshtml" />
-    <Content Include="Views\PublishersAdmin\Index.cshtml" />
     <Content Include="Views\Shared\_MyLayout.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModel\" />
+    <Folder Include="Domain\" />
     <Folder Include="Views\ManageBook\" />
   </ItemGroup>
   <ItemGroup>
@@ -961,6 +952,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810110139485_changeField.resx">
       <DependentUpon>201810110139485_changeField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810140239223_addOrders.resx">
+      <DependentUpon>201810140239223_addOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810140703172_addcart.resx">
+      <DependentUpon>201810140703172_addcart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810150711125_ThichThiCheck.resx">
+      <DependentUpon>201810150711125_ThichThiCheck.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

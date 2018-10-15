@@ -64,21 +64,7 @@
                             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Re-password", required = "required" })
                         </div>
                     </div>
-                    <label class="control-label">Gender<span class="text-danger">*</span></label>
-                    <div class="row m-b-15">
-                        <div class="col-md-6 ">
-                            <label class="control-label mr-3">Male</label>
-                            <input type="radio" name="Gender" value="Male" checked />
-                        </div> <div class="col-md-6 ">
-                            <label class="control-label mr-3">Female</label>
-                            <input type="radio" name="Gender" value="Female" />
-                        </div>
-                    </div>
-                    <label class="control-label">Birthday</label>
-                    @Html.TextBoxFor(model => model.DayOfBirdth, new {
-                         @class = "form-control",
-                        type = "date"
-                            }) <br />
+
                     <div class="register-buttons">
                         <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
                     </div>

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using WebWithAuthentication.Models;
 
 namespace BookShopWithAuthen.Models
 {
@@ -32,10 +33,11 @@ namespace BookShopWithAuthen.Models
         public string Intro { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
-        public float Price { get; set; }
+        public double Price { get; set; }
         public int? Quantity { get; set; }
         public DateTime publishDate { get; set; }
-
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<CartDetail> CartDetails { get; set; }
     }
 
     public abstract class EntityBase

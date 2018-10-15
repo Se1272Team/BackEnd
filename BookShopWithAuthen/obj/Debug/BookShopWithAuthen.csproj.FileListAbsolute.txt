@@ -245,3 +245,6 @@ D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\Web
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.changeStatus.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.addFieldRegister.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.changeField.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.addOrders.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.addcart.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.ThichThiCheck.resources

@@ -1,4 +1,4 @@
-﻿using BookShopWithAuthen.Domain;
+﻿using BookShopWithAuthen.ViewModel;
 using BookShopWithAuthen.Models;
 using System;
 using System.Collections.Generic;

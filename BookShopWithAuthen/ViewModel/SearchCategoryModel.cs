@@ -1,4 +1,4 @@
-﻿namespace BookShopWithAuthen.Domain
+﻿namespace BookShopWithAuthen.ViewModel
 {
     public class SearchCategoryModel
     {

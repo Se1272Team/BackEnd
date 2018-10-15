@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BookShopWithAuthen.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using WebWithAuthentication.Models;
 
 namespace BookShopWithAuthen.Models
 {
@@ -12,10 +14,11 @@ namespace BookShopWithAuthen.Models
     public class ApplicationUser : IdentityUser
     {
         public string Address { get; set; }
-        public string FullName { get; set; }
-        public string Gender { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
         public int Status { get; set; }
-        public DateTime DayOfBirth { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<CartDetail> CartDetails { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -45,5 +48,8 @@ namespace BookShopWithAuthen.Models
         public DbSet<Author> Authors { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<CartDetail> CartDetails { get; set; }
     }
 }

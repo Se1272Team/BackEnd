@@ -51,8 +51,8 @@
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
                     <div class="checkbox checkbox-css m-b-30">
-
-                        <input type="checkbox" id="remember_me_checkbox" name="RememberMe" />
+                        @Html.CheckBoxFor(m=>m.RememberMe)
+                        @*<input type="checkbox" id="remember_me_checkbox" name="RememberMe" />*@
                         <label for="remember_me_checkbox">
                             Remember Me
                         </label>

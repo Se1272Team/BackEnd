@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BookShopWithAuthen.Models;
+using WebWithAuthentication.Helpers;
+using WebWithAuthentication.Models;
 
 namespace BookShopWithAuthen.Controllers
 {
@@ -17,15 +19,17 @@ namespace BookShopWithAuthen.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _dbContext;
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationDbContext dbContext )
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _dbContext = dbContext;
         }
 
         public ApplicationSignInManager SignInManager
@@ -83,6 +87,21 @@ namespace BookShopWithAuthen.Controllers
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
+                    // create cart to user
+                    var cartDetails = (from cd in _dbContext.CartDetails
+                                      where cd.UserID.Equals(User.Identity.GetUserId())
+                                      select cd).ToList();
+                    ShoppingCart shoppingCart = new ShoppingCart();
+                    shoppingCart.UserID = User.Identity.GetUserId();
+                    foreach (CartDetail item in cartDetails)
+                    {
+                        shoppingCart.Items.Add(item.BookID, item.Quantity);
+                    }
+                    // end create cart to user
+
+                    // add Cart to session
+                    
+                    //end add cart to session
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
@@ -151,7 +170,7 @@ namespace BookShopWithAuthen.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FullName=model.Name, DayOfBirth=model.DayOfBirdth, Gender=model.Gender };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name=model.Name };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

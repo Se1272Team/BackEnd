@@ -81,8 +81,6 @@ namespace BookShopWithAuthen.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public string Gender { get; set; }
-        public DateTime DayOfBirdth { get; set; }
         public string Name { get; set; }
     }
 

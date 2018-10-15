@@ -10,6 +10,7 @@
     <!-- Favicons -->
     <link href="/Content/FrontEndRef/img/favicon.png" rel="icon">
     <link href="/Content/FrontEndRef/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -26,14 +27,19 @@
             <div id="logo" class="pull-left">
                 <h3><a href="#intro" class="scrollto">DTBOOKS</a></h3>
             </div>
-
+            
             <nav id="nav-menu-container">
+
+
                 <ul class="nav-menu">
+                    <a href="#"><i class="fas fa-shopping-cart " style="color: aliceblue; font-size: 2em"><sup style="color: aqua">5</sup></i></a>
                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
                     <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
                     <li><a href="#">About us</a></li>
                     @Html.Partial("_LoginPartial")
                 </ul>
+                
+
             </nav>
         </div>
     </header>
