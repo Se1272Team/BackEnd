@@ -206,11 +206,11 @@ D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\System.We
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\WebGrease.dll
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\System.Web.Helpers.xml
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\System.Web.Mvc.xml
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\System.Web.Optimization.xml
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\System.Web.Razor.xml
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\System.Web.WebPages.xml
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\System.Web.WebPages.Deployment.xml
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\System.Web.WebPages.Razor.xml
-D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\System.Web.Optimization.xml
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Newtonsoft.Json.xml
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Antlr3.Runtime.pdb
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\EntityFramework.xml
@@ -234,7 +234,12 @@ D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Microsoft
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Microsoft.AI.Web.xml
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csprojAssemblyReference.cache
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.CoreCompileInputs.cache
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.CopyComplete
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.dll
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.pdb
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.InitialCreate.resources
+D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.GenerateResource.cache
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.FirstMigration.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.addFieldToUser.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.changeStatus.resources
@@ -243,8 +248,3 @@ D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\Web
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.addOrders.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.addcart.resources
 D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.ThichThiCheck.resources
-D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.GenerateResource.cache
-D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.CoreCompileInputs.cache
-D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.CopyComplete
-D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.dll
-D:\fptTerm\term5\C#_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.pdb
