@@ -8,8 +8,8 @@
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="/Content/FrontEndRef/img/favicon.png" rel="icon">
-    <link href="/Content/FrontEndRef/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/Content/FrontEndRef/../Content/FrontEndRef/imgfavicon.png" rel="icon">
+    <link href="/Content/FrontEndRef/../Content/FrontEndRef/imgapple-touch-icon.png" rel="apple-touch-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
     <!-- Google Fonts -->
@@ -32,7 +32,7 @@
 
 
                 <ul class="nav-menu">
-                    <a href="#"><i class="fas fa-shopping-cart " style="color: aliceblue; font-size: 2em"><sup style="color: aqua">5</sup></i></a>
+                    <a href="@Url.Action("Index","Cart")"><i class="fas fa-shopping-cart " style="color: aliceblue; font-size: 2em"><sup style="color: aqua">5</sup></i></a>
                     <li><a href="@Url.Action("Index","Home")">Home</a></li>
                     <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
                     <li><a href="#">About us</a></li>

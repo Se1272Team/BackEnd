@@ -37,22 +37,7 @@
 
                 </div>
                 <div class="price">@Model.Price.000 <sup>đ</sup></div>
-                <small>Tiết kiệm: <span class="text-danger">55%</span> (53.900 ₫)</small><br>
-                <small>Giá thị trường: 98.000 ₫</small>
-                <div class="row mt-3">
-                    <div class="col-12">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn bg-main-color btn-sub-product-quantity">
-                                <i class="fa fa-minus text-white"></i>
-                            </button>
-                            <input type="text" class="form-control txt-products-quantity" style="width: 50px; text-align: center; padding: 0">
-                            <button type="button" class="btn bg-main-color btn-add-product-quantity">
-                                <i class="fa fa-plus text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn bg-main-color btn-shopping-cart">
+                <button class="btn bg-main-color btn-shopping-cart" onclick="addItemToCart(@Model.ID)" >
                     <i class="fa fa-shopping-cart"></i>
                     Thêm vào giỏ hàng
                 </button>
@@ -195,7 +180,7 @@
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-4">
-                            <a href="" style="width: 100%"><img src="../Content/FrontEndRef/img/mua-ngay-sach.jpg" alt="" class="img-fluid"></a>
+                            <a href="" style="width: 100%"><img src="../Content/FrontEndRef/../Content/FrontEndRef/imgmua-ngay-sach.jpg" alt="" class="img-fluid"></a>
                         </div>
                         <div class="col-md-8 pt-4">
                             <h5>Để Học Tốt Tiếng Việt 5 - Tập 1</h5>
@@ -213,32 +198,8 @@
 </section>*@
 
 @section scripts{
-    <script>
-        $('.txt-products-quantity').val(1);
-        $('.btn-add-product-quantity').click(addProductsQuantityToCart);
-        $('.btn-sub-product-quantity').click(subProductsQuantityToCart);
-
-        function addProductsQuantityToCart() {
-            let val = $('.txt-products-quantity').val();
-            let num = 1;
-            if (checkPositiveNumber(val)) num = Math.floor(val) + 1;
-            $('.txt-products-quantity').val(num);
-        }
-        function subProductsQuantityToCart() {
-            let val = $('.txt-products-quantity').val();
-            let num = 1;
-            if (checkPositiveNumber(val) && Math.floor(val) > 1) {
-                num = Math.floor(val) - 1;
-            }
-            $('.txt-products-quantity').val(num);
-        }
-        function checkPositiveNumber(val) {
-            if (val == null || val == undefined) return false;
-            if (val.trim() == '') return false;
-            if (isNaN(val)) return false;
-            if (Number(val) <= 0) return false;
-            return true;
-        }
+    <script src="~/Content/FrontEndRef/js/BookIndex.js">
+        
     </script>
 }
 @section css{

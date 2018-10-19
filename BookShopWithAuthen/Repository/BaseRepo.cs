@@ -19,6 +19,11 @@ namespace WebWithAuthentication.Repository
             _dbContext.Dispose();
         }
 
+        public void Delete(T entity)
+        {
+            var dbSet = _dbContext.Set<T>();
+            dbSet.Remove(entity);
+        }
         public void Create(T entity)
         {
             var dbSet = _dbContext.Set<T>();

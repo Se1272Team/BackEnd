@@ -9,7 +9,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BookShopWithAuthen.Models;
-using WebWithAuthentication.Helpers;
 using WebWithAuthentication.Models;
 
 namespace BookShopWithAuthen.Controllers
@@ -87,21 +86,6 @@ namespace BookShopWithAuthen.Controllers
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
-                    // create cart to user
-                    var cartDetails = (from cd in _dbContext.CartDetails
-                                      where cd.UserID.Equals(User.Identity.GetUserId())
-                                      select cd).ToList();
-                    ShoppingCart shoppingCart = new ShoppingCart();
-                    shoppingCart.UserID = User.Identity.GetUserId();
-                    foreach (CartDetail item in cartDetails)
-                    {
-                        shoppingCart.Items.Add(item.BookID, item.Quantity);
-                    }
-                    // end create cart to user
-
-                    // add Cart to session
-                    
-                    //end add cart to session
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:

@@ -51,6 +51,10 @@ namespace WebWithAuthentication.Service
         {
             return _repo.Get(b => b.ID == ID).SingleOrDefault();
         }
+        public Book getByID(int ID)
+        {
+            return _repo.Get(b => b.ID == ID).SingleOrDefault();
+        }
 
         public SelectList GetSelectListSortBy()
         {
@@ -68,5 +72,7 @@ namespace WebWithAuthentication.Service
             return new SelectList(selectListItemsOrderBy, "Value", "Text");
 
         }
+
+    
     }
 }

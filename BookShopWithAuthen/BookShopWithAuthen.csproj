@@ -200,7 +200,6 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Helpers\ShoppingCart.cs" />
     <Compile Include="Migrations\201810140703172_addcart.cs" />
     <Compile Include="Migrations\201810140703172_addcart.Designer.cs">
       <DependentUpon>201810140703172_addcart.cs</DependentUpon>
@@ -214,7 +213,9 @@
     <Compile Include="Service\AuthorService.cs" />
     <Compile Include="Service\BaseService.cs" />
     <Compile Include="Service\BookService.cs" />
+    <Compile Include="Service\CartService.cs" />
     <Compile Include="Service\CategoryService.cs" />
+    <Compile Include="ViewModel\CartItemViewModel.cs" />
     <Compile Include="ViewModel\SearchCategoryModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -329,6 +330,7 @@
     <Content Include="Content\FrontEndRef\img\testimonial-4.jpg" />
     <Content Include="Content\FrontEndRef\img\testimonial-5.jpg" />
     <Content Include="Content\FrontEndRef\img\thay-kim-tuan-toeic-chuan.jpg" />
+    <Content Include="Content\FrontEndRef\js\BookIndex.js" />
     <Content Include="Content\FrontEndRef\js\carousel.js" />
     <Content Include="Content\FrontEndRef\js\main.js" />
     <Content Include="Content\FrontEndRef\js\shopping-cart.js" />
@@ -894,7 +896,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

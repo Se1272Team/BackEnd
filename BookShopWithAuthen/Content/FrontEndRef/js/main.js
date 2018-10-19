@@ -203,5 +203,4 @@ function checkPositiveNumber(val){
   if(Number(val) <= 0) return false;
   return true;
 }
-alert("ádsdfsfsdf");
 
