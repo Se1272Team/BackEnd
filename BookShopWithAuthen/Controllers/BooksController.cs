@@ -5,12 +5,17 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebWithAuthentication.Service;
 
 namespace BookShopWithAuthen.Controllers
 {
     public class BooksController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private BookService _bookService;
+        public BooksController()
+        {
+            _bookService = new BookService();
+        }
         // GET: Books
         public ActionResult Index(int? id)
         {
@@ -19,17 +24,13 @@ namespace BookShopWithAuthen.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
+            Book book = _bookService.getByID(id);
             if (book == null)
             {
                 return HttpNotFound();
             }
             // get sach cung the loai
-            int idCategory = db.Books.Find(id).CategoryID;
-            var sameCateBooks = (from b in db.Books
-                                 where b.CategoryID == idCategory
-                                 select b).Take(6);
-            ViewBag.sameCateBooks = sameCateBooks.ToList();
+            ViewBag.sameCateBooks = _bookService.getBooksSameCategory(6, id);
             return View(book);
         }
     }

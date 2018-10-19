@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+@section css{
+    <style>
+        .txt-product-quantity {
+            width: 50px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .fa.fa-shopping-cart {
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .cart-navbar-item {
+            border: 2px solid #ccc;
+            color: darkgoldenrod !important;
+        }
+
+        .btn-add-more-product-quantity, .btn-minus-product-quantity {
+            width: 40px !important;
+            color: white;
+            border: 1px solid #ccc;
+        }
+    </style>}
+@section scripts{
+
+    <script src="./Content/FrontEndRef/js/main.js"></script>
+}
+
+<section class="my-5" style="margin-top: 50px">
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ten sach</th>
+                        <th>Hinh anh</th>
+                        <th>Don gia</th>
+                        <th>So luong</th>
+                        <th>Tong gia</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Sach tieng anh</td>
+                        <td>
+                            <img src="img/book.jpg" alt="" style="width: 80px; height: 100px">
+                        </td>
+                        <td><span class="price-cart-product-item">50.000</span>d</td>
+                        <td>
+                            <div class="input-group">
+                                <button class="btn btn-warning btn-minus-product-quantity">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <input type="text" class="text-center txt-product-quantity" value="3">
+                                <button class="btn btn-info btn-add-more-product-quantity">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td><span class="total-price-cart-product-item">150.000</span>d</td>
+                        <td>
+                            <button class="btn btn-danger btn-remove-cart-product">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Sach tieng anh</td>
+                        <td>
+                            <img src="img/book.jpg" alt="" style="width: 80px; height: 100px">
+                        </td>
+                        <td><span class="price-cart-product-item">50.000</span>d</td>
+                        <td>
+                            <div class="input-group">
+                                <button class="btn btn-warning btn-minus-product-quantity">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <input type="text" class="text-center txt-product-quantity" value="3">
+                                <button class="btn btn-info btn-add-more-product-quantity">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td><span class="total-price-cart-product-item">150.000</span>d</td>
+                        <td>
+                            <button class="btn btn-danger btn-remove-cart-product">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="font-weight-bold">Tong tien</td>
+                        <td><span class="total-price-cart-products">300.000</span>d</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="#" class="btn btn-danger btn-order pull-right mt-3">Tien hanh dat hang</a>
+    </div>
+    <div class="clearfix"></div>
+</section>

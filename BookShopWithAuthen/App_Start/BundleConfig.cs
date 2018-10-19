@@ -52,7 +52,8 @@ namespace BookShopWithAuthen
                  "~/Content/FrontEndRef/lib/touchSwipe/jquery.touchSwipe.min.js",
                  "~/Content/FrontEndRef/contactform/contactform.js",
                  "~/Content/FrontEndRef/js/main.js",
-                 "~/Content/FrontEndRef/js/carousel.js"
+                 "~/Content/FrontEndRef/js/carousel.js",
+                 "~/Content/FrontEndRef/js/shopping-cart.js"
                 ));
         }
     }

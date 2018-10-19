@@ -179,3 +179,29 @@ jQuery(document).ready(function( $ ) {
     })
 
 });
+
+function addProductsQuantityToCart(){
+  let val = $('.txt-products-quantity').val();
+  let num = 1;
+  if(checkPositiveNumber(val)) num = Math.floor(val) + 1;
+  $('.txt-products-quantity').val(num);
+}
+
+function subProductsQuantityToCart(){
+  let val = $('.txt-products-quantity').val();
+  let num = 1;
+  if(checkPositiveNumber(val) && Math.floor(val) > 1){
+    num = Math.floor(val) - 1;
+  } 
+  $('.txt-products-quantity').val(num);
+}
+
+function checkPositiveNumber(val){
+  if(val == null || val == undefined) return false;
+  if(val.trim() == '') return false;    
+  if(isNaN(val)) return false;
+  if(Number(val) <= 0) return false;
+  return true;
+}
+alert("ádsdfsfsdf");
+
