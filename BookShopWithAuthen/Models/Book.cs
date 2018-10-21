@@ -15,7 +15,8 @@ namespace BookShopWithAuthen.Models
             this.Authors = new HashSet<Author>();
             publishDate = new DateTime(2018, 05, 01);
         }
-        
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
         public string Name { get; set; }
 

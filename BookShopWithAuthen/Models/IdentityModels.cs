@@ -15,7 +15,6 @@ namespace BookShopWithAuthen.Models
     {
         public string Address { get; set; }
         public string Name { get; set; }
-        public string Phone { get; set; }
         public int Status { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<CartDetail> CartDetails { get; set; }

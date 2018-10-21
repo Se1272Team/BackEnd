@@ -1,4 +1,4 @@
-
+﻿
 function addMoreProductQuantityToCart(e, bookid) {
     let $ele = $(e.target).siblings('.txt-product-quantity');
     let val = $ele.val();
@@ -7,7 +7,7 @@ function addMoreProductQuantityToCart(e, bookid) {
     $ele.val(num);
     $.ajax({
         type: 'POST',
-        url: 'Cart/changeQuantity',
+        url: '/Cart/changeQuantity',
         dataType: 'json',
         data: { bookID: bookid, quantity: num },
         success: function (data) {
@@ -28,7 +28,7 @@ function minusProductQuantityToCart(e, bookid) {
     $ele.val(num);
     $.ajax({
         type: 'POST',
-        url: 'Cart/changeQuantity',
+        url: '/Cart/changeQuantity',
         dataType: 'json',
         data: { bookID: bookid, quantity: num },
         success: function (data) {
@@ -46,7 +46,7 @@ function minusProductQuantityToCart(e, bookid) {
 function editQuantityOfCart(object,bookid) {
     $.ajax({
         type: 'POST',
-        url: 'Cart/changeQuantity',
+        url: '/Cart/changeQuantity',
         dataType: 'json',
         data: { bookID: bookid, quantity: object.value },
         success: function (data) {
@@ -61,7 +61,7 @@ function editQuantityOfCart(object,bookid) {
 function deleteItemFromCart(bookid) {
     $.ajax({
         type: 'POST',
-        url: 'Cart/deleteItem',
+        url: '/Cart/deleteItem',
         dataType: 'json',
         data: { bookID: bookid },
         success: function (data) {
@@ -101,16 +101,35 @@ function convertMoneyFormatToNumber(val) {
     return val.replace(/[.]/g, '');
 }
 
+
 function order() {
     $('.modal-order').modal('show');
 }
-//$('.btn-add-more-product-quantity').click(addMoreProductQuantityToCart);
 $('.txt-product-quantity').on('input', setDefaultVal);
-//$('.btn-minus-product-quantity').click(minusProductQuantityToCart);
 $('.btn-remove-cart-product').click(removeCartProductItem);
 $('.btn-order').click(order);
-$('.btn-finish-order').click(() => {
-    $('.modal-order').modal('hide');
-    setTimeout(() => { alert('Thanh toan thanh cong, chung toi se giao hang trong 3 ngay toi') }, 200);
-})
+//$('.btn-finish-order').click(() => {
+//    $('.modal-order').modal('hide');
+//    setTimeout(() => { alert('Thanh toan thanh cong, chung toi se giao hang trong 3 ngay toi') }, 200);
+//})
+
+$("#id_formConfirm").submit(function (event) {
+    event.preventDefault();
+    var form = $(this);
+    var url = form.attr('action');
+    alert("abc");
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: form.serialize(), // serializes the form's elements.
+        success: function (data) {
+            $('.modal-order').modal('hide');
+            alert('Đặt hàng thành công, kiểm tra mail để xem chi tiết đơn hàng của bạn, xin cảm ơn!')
+        },
+        error: function (ex) {
+            alert("wrong");
+        }
+    });
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+});
 
