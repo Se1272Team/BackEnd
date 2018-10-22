@@ -16,6 +16,8 @@ namespace WebWithAuthentication.Models
         [Key, Column(Order = 1)]
         [ForeignKey("Order")]
         public int OrderID { get; set; }
+        public string BookName { get; set; }
+        public string Image { get; set; }
         public int Quantity { get; set; }
         public double Price { get; set; }
 

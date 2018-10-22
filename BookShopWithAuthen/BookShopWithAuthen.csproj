@@ -208,6 +208,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Migrations\201810140703172_addcart.cs" />
     <Compile Include="Migrations\201810140703172_addcart.Designer.cs">
       <DependentUpon>201810140703172_addcart.cs</DependentUpon>
@@ -228,6 +229,10 @@
     <Compile Include="Migrations\201810211402572_addGenerateKey.Designer.cs">
       <DependentUpon>201810211402572_addGenerateKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810221057555_changeOrderDetail.cs" />
+    <Compile Include="Migrations\201810221057555_changeOrderDetail.Designer.cs">
+      <DependentUpon>201810221057555_changeOrderDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\CartDetail.cs" />
     <Compile Include="Repository\BaseRepo.cs" />
     <Compile Include="Service\AuthorService.cs" />
@@ -239,6 +244,7 @@
     <Compile Include="Service\OrderService.cs" />
     <Compile Include="Service\OtherServices.cs" />
     <Compile Include="ViewModel\CartItemViewModel.cs" />
+    <Compile Include="ViewModel\OrderDetailViewModel.cs" />
     <Compile Include="ViewModel\SearchCategoryModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -948,6 +954,8 @@
     <Content Include="Views\Shared\_MyLayout.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1003,6 +1011,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810211402572_addGenerateKey.resx">
       <DependentUpon>201810211402572_addGenerateKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810221057555_changeOrderDetail.resx">
+      <DependentUpon>201810221057555_changeOrderDetail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -36,7 +36,6 @@ namespace WebWithAuthentication.Models
         SoldOut,
         Delivering,
         Finished,
-        NotReceive
     }
     
 }

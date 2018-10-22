@@ -77,7 +77,9 @@ namespace BookShopWithAuthen.Controllers
                     OrderID = order.Id,
                     BookID = item.BookId,
                     Price = item.Price,
-                    Quantity = item.Quantity
+                    Quantity = item.Quantity,
+                    BookName = item.BookName,
+                    Image=item.Image
                 };
                 _orderDetailService.Create(orderDetail);
             }

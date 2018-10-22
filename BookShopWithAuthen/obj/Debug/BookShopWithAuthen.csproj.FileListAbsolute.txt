@@ -386,3 +386,4 @@ D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.changePhone.resources
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.changePhoneNumber.resources
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.addGenerateKey.resources
+D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\WebWithAuthentication.Migrations.changeOrderDetail.resources

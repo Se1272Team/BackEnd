@@ -117,7 +117,6 @@ $("#id_formConfirm").submit(function (event) {
     event.preventDefault();
     var form = $(this);
     var url = form.attr('action');
-    alert("abc");
     $.ajax({
         type: "POST",
         url: url,

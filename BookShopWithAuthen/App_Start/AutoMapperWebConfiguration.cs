@@ -16,6 +16,7 @@ namespace WebWithAuthentication.App_Start
             Mapper.Initialize(cfg =>
             {
                 cfg.AddProfile<UserProfile>();
+                cfg.AddProfile<OrderDetailProfile>();
             });
         }
     }
@@ -25,6 +26,13 @@ namespace WebWithAuthentication.App_Start
         public UserProfile()
         {
             CreateMap<ApplicationUser, ShippingDetailViewModel>();
+        }
+    }
+    public class OrderDetailProfile : Profile
+    {
+        public OrderDetailProfile()
+        {
+            CreateMap<OrderDetail, OrderDetailViewModel>();
         }
     }
 }
