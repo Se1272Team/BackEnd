@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebWithAuthentication.Models;
+using BookShopWithAuthen.Models;
 
-namespace WebWithAuthentication.Service
+namespace BookShopWithAuthen.Service
 {
     public class OrderService:BaseService<Order>
     {

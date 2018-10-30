@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebWithAuthentication.Models;
-using WebWithAuthentication.ViewModel;
+using BookShopWithAuthen.Models;
+using BookShopWithAuthen.ViewModel;
 
-namespace WebWithAuthentication.App_Start
+namespace BookShopWithAuthen.App_Start
 {
     public static class AutoMapperWebConfiguration
     {
@@ -26,6 +26,7 @@ namespace WebWithAuthentication.App_Start
         public UserProfile()
         {
             CreateMap<ApplicationUser, ShippingDetailViewModel>();
+            CreateMap<ApplicationUser, UserViewModel>();
         }
     }
     public class OrderDetailProfile : Profile

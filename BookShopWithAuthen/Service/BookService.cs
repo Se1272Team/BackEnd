@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebWithAuthentication.Service
+namespace BookShopWithAuthen.Service
 {
     public class BookService:BaseService<Book>
     {

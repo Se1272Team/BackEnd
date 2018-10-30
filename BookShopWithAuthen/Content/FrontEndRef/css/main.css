@@ -10,16 +10,8 @@ body{
   background-color: var(--bg-main-color);
 }
 
-.custom-text-color{
-  color: var(--bg-main-color);
-}
+.custom-t
 
-.card-body-book-category{
-  padding-bottom: 0px!important;
-}
-
-.custom-fontsize-p{
-  font-size: 0.8em;
 }
 
 .celebrity-content{

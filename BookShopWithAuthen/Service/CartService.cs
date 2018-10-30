@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebWithAuthentication.Models;
-using WebWithAuthentication.ViewModel;
+using BookShopWithAuthen.Models;
+using BookShopWithAuthen.ViewModel;
 
-namespace WebWithAuthentication.Service
+namespace BookShopWithAuthen.Service
 {
     public class CartService:BaseService<CartDetail>
     {

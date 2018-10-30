@@ -1,5 +1,5 @@
-﻿@using WebWithAuthentication.Models
-@model IEnumerable<WebWithAuthentication.Models.Order>
+﻿@using BookShopWithAuthen.Models
+@model IEnumerable<BookShopWithAuthen.Models.Order>
 
 @{
     ViewBag.Title = "Index";
@@ -24,7 +24,7 @@
 
         }
 
-        $("#id_cancelOrder").click(checksure);
+        $(".cancel-order").click(checksure);
     </script>
 }
 @section css{
@@ -97,7 +97,7 @@
                                     using (Html.BeginForm("Cancel", "Orders", FormMethod.Post))
                                     {
                                         @Html.Hidden("id", item.Id)
-                                        <input type="submit" class="btn btn-danger" id="id_cancelOrder" value="Cancel" />
+                                        <input type="submit" class="btn btn-danger cancel-order" value="Cancel" />
                                     }
                                 }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BookShopWithAuthen.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using WebWithAuthentication.Models;
+using BookShopWithAuthen.Models;
 
 namespace BookShopWithAuthen.Models
 {

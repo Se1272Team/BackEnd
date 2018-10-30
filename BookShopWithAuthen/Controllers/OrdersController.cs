@@ -9,11 +9,12 @@ using System.Web.Mvc;
 using AutoMapper;
 using BookShopWithAuthen.Models;
 using Microsoft.AspNet.Identity;
-using WebWithAuthentication.Models;
-using WebWithAuthentication.Service;
-using WebWithAuthentication.ViewModel;
+using BookShopWithAuthen.Models;
+using BookShopWithAuthen.Service;
+using BookShopWithAuthen.ViewModel;
+using Rotativa;
 
-namespace WebWithAuthentication.Controllers
+namespace BookShopWithAuthen.Controllers
 {
     [Authorize(Roles ="User")]
     public class OrdersController : Controller

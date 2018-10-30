@@ -1,4 +1,4 @@
-namespace WebWithAuthentication.Migrations
+namespace BookShopWithAuthen.Migrations
 {
     using BookShopWithAuthen.Models;
     using System;

@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace WebWithAuthentication.Repository
+namespace BookShopWithAuthen.Repository
 {
 
     public class BaseRepo<T> where T : class

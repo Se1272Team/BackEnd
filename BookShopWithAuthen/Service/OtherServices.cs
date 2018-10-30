@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 
-namespace WebWithAuthentication.Service
+namespace BookShopWithAuthen.Service
 {
     public class OtherServices
     {
@@ -14,6 +14,7 @@ namespace WebWithAuthentication.Service
         {
             MailMessage mail = new MailMessage("dtbookcompany@gmail.com", emailTo)
             {
+                IsBodyHtml = true,
                 Subject = subject,
                 Body = message
             };

@@ -1,5 +1,5 @@
-﻿@using WebWithAuthentication.Models
-@model WebWithAuthentication.Models.Order
+﻿@using BookShopWithAuthen.Models
+@model BookShopWithAuthen.Models.Order
 
 
 @{
@@ -70,21 +70,28 @@
                     break;
             }
 
-        </h3> 
-       
+        </h3>
+
         <h4 style="color: blueviolet">Thông tin nhận hàng</h4>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label>Tên</label>
                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control", disabled = "disabled" })
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label>Số điện thoại</label>
                 @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", disabled = "disabled" })
             </div>
-            <div class="form-group col-md-4">
+            
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
                 <label>Email</label>
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control", disabled = "disabled" })
+            </div>
+            <div class="form-group col-md-6">
+                <label>Order Date</label>
+                @Html.TextBoxFor(m => m.OrderDate, new { @class = "form-control", disabled = "disabled", @Value = Model.OrderDate.ToString("dd/MM/yyyy") })
             </div>
         </div>
         <div class="form-row">
@@ -142,6 +149,8 @@
                 </table>
             </div>
             <a href="@Url.Action("Index","Orders")" class="btn btn-success btn-order pull-right mt-3">Quay lại đơn hàng của tôi</a>
+            <a href="@Url.Action("PrintDetail","Orders")" class="btn btn-success btn-order pull-right mt-3">Export Pdf</a>
+
         }<br />
 
 

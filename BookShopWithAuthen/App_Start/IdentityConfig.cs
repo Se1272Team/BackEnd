@@ -11,15 +11,50 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using BookShopWithAuthen.Models;
+using System.Net.Mail;
+using System.Configuration;
+using System.Net;
+using System.Diagnostics;
 
 namespace BookShopWithAuthen
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public async Task SendAsync(IdentityMessage message)
         {
+            await configSendGridasync(message);
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+        }
+        private async Task configSendGridasync(IdentityMessage message, bool isBodyHtml = true)
+        {
+            MailMessage mail = new MailMessage("dtbookcompany@gmail.com", message.Destination)
+            {
+                IsBodyHtml = isBodyHtml,
+                Subject = message.Subject,
+                Body = message.Body
+            };
+            string emailAddress = ConfigurationManager.AppSettings["emailAddress"];
+            string password = ConfigurationManager.AppSettings["passwordEmailAddress"];
+            SmtpClient client = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                UseDefaultCredentials = false,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(emailAddress, password)
+            };
+            // send email
+            if (client != null)
+            {
+                client.Send(mail);
+            }
+            else
+            {
+                Trace.TraceError("Failed to create Web transport.");
+                await Task.FromResult(0);
+            }
+
         }
     }
 

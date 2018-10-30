@@ -6,9 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Web.Mvc;
-using WebWithAuthentication.Models;
-using WebWithAuthentication.Service;
-using WebWithAuthentication.ViewModel;
+using BookShopWithAuthen.Models;
+using BookShopWithAuthen.Service;
+using BookShopWithAuthen.ViewModel;
+using BookShopWithAuthen.Helpers.EmailTemplate;
+using RazorEngine.Templating;
+using System.IO;
 
 namespace BookShopWithAuthen.Controllers
 {
@@ -74,7 +77,7 @@ namespace BookShopWithAuthen.Controllers
             {
                 OrderDetail orderDetail = new OrderDetail()
                 {
-                    OrderID = order.Id,
+                    Order = order,
                     BookID = item.BookId,
                     Price = item.Price,
                     Quantity = item.Quantity,
@@ -82,18 +85,33 @@ namespace BookShopWithAuthen.Controllers
                     Image=item.Image
                 };
                 _orderDetailService.Create(orderDetail);
+                
             }
 
             // send mail to customer
-            string subject = "Notification about your order";
-            string message = "Your order is " + totalMoney + ".000 đ and will be sent soon, please visit our website to " +
-                " view your order status";
+            string subject = "Notification about your order at DTBook";
+            ICollection<OrderDetailViewModel> orderDetailViewModels = new List<OrderDetailViewModel>();
+            var orderDetails = order.OrderDetails;
+            foreach (var item in orderDetails)
+            {
+                OrderDetailViewModel tmpOrDeViewModel = Mapper.Map<OrderDetailViewModel>(item);
+                orderDetailViewModels.Add(tmpOrDeViewModel);
+            }
+            var model = new OrderConfirmEmailModel()
+            {
+                Order = order,
+                OrderDetailViewModels = orderDetailViewModels
+            };
+            var path = Path.Combine(Server.MapPath("~/Helpers/EmailTemplate"), "OrderConfirmTemplate.cshtml");
+            var templateSerivce = new TemplateService();
             try
             {
-                OtherServices.SendMail(shippingDetailViewModel.Email, subject, message);
+                string emailHtmlBody = templateSerivce.Parse(System.IO.File.ReadAllText(path), model, null, null);
+                OtherServices.SendMail(shippingDetailViewModel.Email, subject, emailHtmlBody);
             }
             catch (Exception ex)
             {
+                Debug.Write("This is inner exeption: " + ex.Message);
                 Debug.Write("This is inner exeption: " + ex.InnerException);
             }
         }

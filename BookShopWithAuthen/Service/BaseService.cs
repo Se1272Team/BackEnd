@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebWithAuthentication.Repository;
+using BookShopWithAuthen.Repository;
 
-namespace WebWithAuthentication.Service
+namespace BookShopWithAuthen.Service
 {
     public class BaseService<T> where T:class
     {

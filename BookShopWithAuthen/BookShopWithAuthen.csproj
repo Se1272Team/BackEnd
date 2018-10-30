@@ -12,8 +12,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebWithAuthentication</RootNamespace>
-    <AssemblyName>WebWithAuthentication</AssemblyName>
+    <RootNamespace>BookShopWithAuthen</RootNamespace>
+    <AssemblyName>BookShopWithAuthen</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -49,6 +49,12 @@
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.4-rc\lib\net45\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -206,9 +212,10 @@
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\UserManageController.cs" />
+    <Compile Include="Helpers\EmailTemplate\OrderConfirmEmailModel.cs" />
     <Compile Include="Migrations\201810140703172_addcart.cs" />
     <Compile Include="Migrations\201810140703172_addcart.Designer.cs">
       <DependentUpon>201810140703172_addcart.cs</DependentUpon>
@@ -290,6 +297,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\ShippingDetailViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -324,10 +332,12 @@
     <Content Include="Content\FrontEndRef\img\co-miss-hoa.png" />
     <Content Include="Content\FrontEndRef\img\customer-comment.jpg" />
     <Content Include="Content\FrontEndRef\img\dale-carnegie.jpg" />
+    <Content Include="Content\FrontEndRef\img\download.jfif" />
     <Content Include="Content\FrontEndRef\img\event-press.jpg" />
     <Content Include="Content\FrontEndRef\img\facts-bg.jpg" />
     <Content Include="Content\FrontEndRef\img\facts-img.png" />
     <Content Include="Content\FrontEndRef\img\favicon.png" />
+    <Content Include="Content\FrontEndRef\img\images.jfif" />
     <Content Include="Content\FrontEndRef\img\intro-carousel\1.jpg" />
     <Content Include="Content\FrontEndRef\img\intro-carousel\2.jpg" />
     <Content Include="Content\FrontEndRef\img\intro-carousel\3.jpg" />
@@ -338,6 +348,7 @@
     <Content Include="Content\FrontEndRef\img\muc-luc-quang-ganh-lo-di-1.jpg" />
     <Content Include="Content\FrontEndRef\img\muc-luc-quang-ganh-lo-di-2.jpg" />
     <Content Include="Content\FrontEndRef\img\muc-luc-quang-ganh-lo-di-3.jpg" />
+    <Content Include="Content\FrontEndRef\img\open-vintage-book-stock-photo-951276.jpg" />
     <Content Include="Content\FrontEndRef\img\portfolio\app1.jpg" />
     <Content Include="Content\FrontEndRef\img\portfolio\app2.jpg" />
     <Content Include="Content\FrontEndRef\img\portfolio\app3.jpg" />
@@ -360,6 +371,7 @@
     <Content Include="Content\FrontEndRef\img\testimonial-4.jpg" />
     <Content Include="Content\FrontEndRef\img\testimonial-5.jpg" />
     <Content Include="Content\FrontEndRef\img\thay-kim-tuan-toeic-chuan.jpg" />
+    <Content Include="Content\FrontEndRef\img\videoblocks-opened-books-against-a-background-stacks-of-books_b5gfams1pf_thumbnail-full01.png" />
     <Content Include="Content\FrontEndRef\js\BookIndex.js" />
     <Content Include="Content\FrontEndRef\js\carousel.js" />
     <Content Include="Content\FrontEndRef\js\main.js" />
@@ -884,6 +896,10 @@
     <Content Include="Image\phieu-bai-tap-bo-tro-kien-thuc-tieng-anh-lop-5-tap-1-bia-truoc-600x855.jpg" />
     <Content Include="Image\ren-luyen-ky-nang-lam-bai-trac-nghiem-tu-vung-mon-tieng-anh-bia-truoc-600x858.jpg" />
     <Content Include="Image\trungcap-trc.jpg" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -905,6 +921,8 @@
     <Content Include="Content\LoginRef\assets\plugins\superbox\css\font\superboxicons8788.eot" />
     <Content Include="Content\LoginRef\assets\plugins\superbox\css\font\superboxicons8788.ttf" />
     <Content Include="Content\LoginRef\assets\plugins\superbox\css\font\superboxicons8788.woff" />
+    <Content Include="App_Browsers\qt.browser" />
+    <Content Include="Helpers\EmailTemplate\OrderConfirmTemplate.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -926,9 +944,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -956,6 +971,10 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\UserManage\Index.cshtml" />
+    <Content Include="Views\UserManage\ChangePassword.cshtml" />
+    <Content Include="Views\Shared\CartItemPartial.cshtml" />
+    <Content Include="Views\Account\Info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
