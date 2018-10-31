@@ -1,17 +1,16 @@
 ﻿using AutoMapper;
-using BookShopWithAuthen.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Web.Mvc;
+using BookShopWithAuthen.Helpers.EmailTemplate;
 using BookShopWithAuthen.Models;
 using BookShopWithAuthen.Service;
 using BookShopWithAuthen.ViewModel;
-using BookShopWithAuthen.Helpers.EmailTemplate;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using RazorEngine.Templating;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Web.Mvc;
 
 namespace BookShopWithAuthen.Controllers
 {
@@ -34,6 +33,11 @@ namespace BookShopWithAuthen.Controllers
         // GET: Cart
         public ActionResult Index()
         {
+            if (TempData["errorMessage"] != null)
+            {
+                ViewBag.errorMessage = TempData["errorMessage"].ToString();
+            }
+            
             // get cart
             List<CartItemViewModel> listCartItems = _cartService.GetShoppingCart(User.Identity.GetUserId());
             ViewBag.totalMoney = _cartService.GetTotalMoney(User.Identity.GetUserId());
@@ -45,8 +49,27 @@ namespace BookShopWithAuthen.Controllers
             return View(shippingDetailViewModel);
         }
         [HttpPost]
-        public void Checkout(ShippingDetailViewModel shippingDetailViewModel)
+        public ActionResult Checkout(ShippingDetailViewModel shippingDetailViewModel)
         {
+            string userId = User.Identity.GetUserId();
+            // Kiem tra tinh hop le cua gio hang
+            bool flagValid = true;
+            List<CartItemViewModel> listCartItems = _cartService.GetShoppingCart(User.Identity.GetUserId());
+            foreach (var item in listCartItems)
+            {
+                int wareHouseQuantity = (int)_bookService.getByID(item.BookId).Quantity;
+                if (item.Quantity > wareHouseQuantity)
+                {
+                    _cartService.EditQuantityFromCart(userId, item.BookId, wareHouseQuantity);
+                    flagValid = false;
+                }
+            }
+            if (flagValid == false)
+            {
+                TempData["errorMessage"] = "Một số sách bạn đặt có số lượng không đủ, chúng tôi đã cập nhật " +
+                    " lại số lượng sách của vài sản phẩm trong giỏ hàng, mời bạn xem và đặt hàng lại";
+                return RedirectToAction("Index");
+            }
             // create order
             int totalMoney = _cartService.GetTotalMoney(User.Identity.GetUserId());
             Order order = new Order()
@@ -71,10 +94,10 @@ namespace BookShopWithAuthen.Controllers
             }
 
             // create order details
-            List<CartItemViewModel> listCartItems = _cartService.GetShoppingCart(User.Identity.GetUserId());
-
             foreach (var item in listCartItems)
             {
+                int wareHouseQuantity = (int)_bookService.getByID(item.BookId).Quantity;
+                _bookService.UpdateQuantityBook(item.BookId, wareHouseQuantity - item.Quantity);
                 OrderDetail orderDetail = new OrderDetail()
                 {
                     Order = order,
@@ -82,11 +105,15 @@ namespace BookShopWithAuthen.Controllers
                     Price = item.Price,
                     Quantity = item.Quantity,
                     BookName = item.BookName,
-                    Image=item.Image
+                    Image = item.Image
                 };
                 _orderDetailService.Create(orderDetail);
-                
+
             }
+
+
+            // update book quantity
+
 
             // send mail to customer
             string subject = "Notification about your order at DTBook";
@@ -114,6 +141,7 @@ namespace BookShopWithAuthen.Controllers
                 Debug.Write("This is inner exeption: " + ex.Message);
                 Debug.Write("This is inner exeption: " + ex.InnerException);
             }
+            return View();
         }
         [HttpPost]
         public void AddToCart(int bookID)

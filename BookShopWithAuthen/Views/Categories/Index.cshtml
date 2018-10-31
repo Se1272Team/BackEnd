@@ -94,6 +94,10 @@
                                             <p class="bestseller-price">@item.Price.000 ₫</p>
 
                                         </div>
+                                        @if (item.Quantity == 0)
+                                        {
+                                            <div class="px-1 py-1 m-0" style="background: #44AC52; color: white">Đã hết hàng</div>
+                                        }
 
                                     </div>
 

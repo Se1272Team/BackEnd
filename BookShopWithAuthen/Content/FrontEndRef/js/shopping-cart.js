@@ -5,6 +5,11 @@ function addMoreProductQuantityToCart(e, bookid) {
     let num = 1;
     if (checkPositiveNumber(val)) num = Math.floor(val) + 1;
     $ele.val(num);
+    if (num > 20) {
+        alert("Số lượng sách mua tối đa là 20 quyển sách");
+        $("#id_quantity_" + bookid).val(20);
+        num = 20;
+    }
     $.ajax({
         type: 'POST',
         url: '/Cart/changeQuantity',
@@ -26,6 +31,11 @@ function minusProductQuantityToCart(e, bookid) {
     let num = 1;
     if (checkPositiveNumber(val) && Math.floor(val) > 1) num = Math.floor(val) - 1;
     $ele.val(num);
+    if (num > 20) {
+        alert("Số lượng sách mua tối đa là 20 quyển sách");
+        $("#id_quantity_" + bookid).val(20);
+        num = 20;
+    }
     $.ajax({
         type: 'POST',
         url: '/Cart/changeQuantity',
@@ -43,28 +53,38 @@ function minusProductQuantityToCart(e, bookid) {
 
 }
 
-function editQuantityOfCart(object, bookid) {
-
-    $.ajax({
-        type: 'POST',
-        url: '/Cart/changeQuantity',
-        dataType: 'json',
-        data: { bookID: bookid, quantity: object.value },
-        success: function (data) {
-            $("#id_totalPrice_" + bookid).html(data.totalPrice + ".000");
-            $("#totalMoney").html(data.totalMoney + ".000");
-        },
-        error: function (ex) {
-            alert(ex);
-        }
-    });
-}
 function checkValidNum(event) {
     var stringKey = event.key;
     if (stringKey == ".") {
         event.preventDefault();
     }
 }
+
+function editQuantityOfCart(object, bookid) {
+    var quantity = parseInt($("#id_quantity_" + bookid).val());
+    if (quantity > 20) {
+        alert("Số lượng sách mua tối đa là 20 quyển sách");
+        $("#id_quantity_" + bookid).val(20);
+        object.value = 20;
+    }
+
+        $.ajax({
+            type: 'POST',
+            url: '/Cart/changeQuantity',
+            dataType: 'json',
+            data: { bookID: bookid, quantity: object.value },
+            success: function (data) {
+                $("#id_totalPrice_" + bookid).html(data.totalPrice + ".000");
+                $("#totalMoney").html(data.totalMoney + ".000");
+            },
+            error: function (ex) {
+                alert(ex);
+            }
+        });
+
+   
+}
+
 
 function deleteItemFromCart(bookid) {
     $.ajax({
@@ -121,22 +141,22 @@ $('.btn-order').click(order);
 //    setTimeout(() => { alert('Thanh toan thanh cong, chung toi se giao hang trong 3 ngay toi') }, 200);
 //})
 
-$("#id_formConfirm").submit(function (event) {
-    event.preventDefault();
-    var form = $(this);
-    var url = form.attr('action');
-    $.ajax({
-        type: "POST",
-        url: url,
-        data: form.serialize(), // serializes the form's elements.
-        success: function (data) {
-            $('.modal-order').modal('hide');
-            alert('Đặt hàng thành công, kiểm tra mail để xem chi tiết đơn hàng của bạn, xin cảm ơn!')
-        },
-        error: function (ex) {
-            alert("wrong");
-        }
-    });
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-});
+//$("#id_formConfirm").submit(function (event) {
+//    event.preventDefault();
+//    var form = $(this);
+//    var url = form.attr('action');
+//    $.ajax({
+//        type: "POST",
+//        url: url,
+//        data: form.serialize(), // serializes the form's elements.
+//        success: function (data) {
+//            $('.modal-order').modal('hide');
+//            alert('Đặt hàng thành công, kiểm tra mail để xem chi tiết đơn hàng của bạn, xin cảm ơn!')
+//        },
+//        error: function (ex) {
+//            alert("wrong");
+//        }
+//    });
+//    e.preventDefault(); // avoid to execute the actual submit of the form.
+//});
 

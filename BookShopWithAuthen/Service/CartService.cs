@@ -27,7 +27,10 @@ namespace BookShopWithAuthen.Service
                     Price = book.Price,
                     Quantity = item.Quantity,
                 };
-                listCartItems.Add(cartItem);
+                if (cartItem.Quantity != 0)
+                {
+                    listCartItems.Add(cartItem);
+                }
             }
             return listCartItems;
         }

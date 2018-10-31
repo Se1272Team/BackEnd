@@ -37,10 +37,18 @@
 
                 </div>
                 <div class="price">@Model.Price.000 <sup>đ</sup></div>
-                <button class="btn bg-main-color btn-shopping-cart btn-success" onclick="addItemToCart(@Model.ID)" >
-                    <i class="fa fa-shopping-cart"></i>
-                    Thêm vào giỏ hàng
-                </button>
+                @if (Model.Quantity != 0)
+                {
+                    <button class="btn bg-main-color btn-shopping-cart btn-success" onclick="addItemToCart(@Model.ID)">
+                        <i class="fa fa-shopping-cart"></i>
+                        Thêm vào giỏ hàng
+                    </button>
+                }
+                else
+                {
+                    <p style="color:red">Sản phẩm đã hết hàng</p>
+                }
+
             </div>
         </div>
     </div>

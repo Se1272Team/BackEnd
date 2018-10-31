@@ -72,6 +72,15 @@ namespace BookShopWithAuthen.Service
             return new SelectList(selectListItemsOrderBy, "Value", "Text");
 
         }
+        public void UpdateQuantityBook(int bookID, int newQuantity)
+        {
+            Book tmpBook = _repo.Get(b => b.ID == bookID).SingleOrDefault();
+            if (tmpBook != null)
+            {
+                tmpBook.Quantity = newQuantity;
+                _repo.SaveChanges();
+            }
+        }
 
     
     }

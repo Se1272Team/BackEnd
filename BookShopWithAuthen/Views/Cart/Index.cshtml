@@ -31,9 +31,14 @@
     </style>}
 @section scripts{
     <script src="../Content/FrontEndRef/js/shopping-cart.js"></script>
+    <script>
+        
+    </script>
+
 }
 <section class="my-5" style="margin-top: 50px">
     <div class="container">
+        <h3 style="color: red">@ViewBag.errorMessage</h3>
         @if (listCartItems.Count != 0)
         {
             <div class="table-responsive">
@@ -65,7 +70,7 @@
                                         <button class="btn btn-warning btn-minus-product-quantity" onclick="minusProductQuantityToCart(event,@item.BookId)">
                                             -
                                         </button>
-                                        <input type="text" class="text-center txt-product-quantity" value="@item.Quantity" id="id_quantity_@item.BookId" onkeyup="return editQuantityOfCart(this,@item.BookId)" onkeypress="checkValidNum(event)">
+                                        <input type="text" class="text-center txt-product-quantity" value="@item.Quantity" id="id_quantity_@item.BookId" onkeypress="checkValidNum(event)" onkeyup="editQuantityOfCart(this,@item.BookId)">
                                         <button class="btn btn-info btn-add-more-product-quantity" onclick="addMoreProductQuantityToCart(event,@item.BookId)">
                                             +
                                         </button>
@@ -109,7 +114,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="@Url.Action("Checkout","Cart")" class="mt-3" id="id_formConfirm">
+                <form action="@Url.Action("Checkout","Cart")" class="mt-3" id="id_formConfirm" method="post">
                     <div class="form-group">
                         <label>Tên (*)</label>
                         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })

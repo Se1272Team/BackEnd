@@ -212,6 +212,7 @@
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\UserManageController.cs" />
@@ -975,6 +976,8 @@
     <Content Include="Views\UserManage\ChangePassword.cshtml" />
     <Content Include="Views\Shared\CartItemPartial.cshtml" />
     <Content Include="Views\Account\Info.cshtml" />
+    <Content Include="Views\HomePage\Index.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

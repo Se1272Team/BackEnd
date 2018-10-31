@@ -365,7 +365,6 @@ D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Micro
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Microsoft.AI.WindowsServer.xml
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Microsoft.AI.Web.xml
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csprojAssemblyReference.cache
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.GenerateResource.cache
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.CoreCompileInputs.cache
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csproj.CopyComplete
@@ -390,3 +389,4 @@ D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Razor
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\RazorEngine.xml
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.dll
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.pdb
+D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csprojAssemblyReference.cache

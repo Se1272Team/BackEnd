@@ -20,10 +20,14 @@ namespace BookShopWithAuthen.Controllers
     public class OrdersController : Controller
     {
         private OrderService _orderService;
+        private CartService _cartService;
+        private BookService _bookService;
 
         public OrdersController()
         {
             _orderService = new OrderService();
+            _cartService = new CartService();
+            _bookService = new BookService();
         }
 
         // GET: Orders
@@ -59,6 +63,7 @@ namespace BookShopWithAuthen.Controllers
         [HttpPost]
         public ActionResult Cancel(int id)
         {
+            string userId = User.Identity.GetUserId();
             Order order = _orderService.GetByID(id);
             if (order == null)
             {
@@ -67,6 +72,12 @@ namespace BookShopWithAuthen.Controllers
             else
             {
                 _orderService.ChangeStatus(id, (int)StatusOrder.Canceled);
+                foreach (var item in order.OrderDetails)
+                {
+                    int wareHouseQuantity = (int)_bookService.getByID(item.BookID).Quantity;
+                    _bookService.UpdateQuantityBook(item.BookID, wareHouseQuantity + item.Quantity);
+
+                }
             }
             return RedirectToAction("Index");
         }
