@@ -43,7 +43,8 @@ function minusProductQuantityToCart(e, bookid) {
 
 }
 
-function editQuantityOfCart(object,bookid) {
+function editQuantityOfCart(object, bookid) {
+
     $.ajax({
         type: 'POST',
         url: '/Cart/changeQuantity',
@@ -58,6 +59,13 @@ function editQuantityOfCart(object,bookid) {
         }
     });
 }
+function checkValidNum(event) {
+    var stringKey = event.key;
+    if (stringKey == ".") {
+        event.preventDefault();
+    }
+}
+
 function deleteItemFromCart(bookid) {
     $.ajax({
         type: 'POST',

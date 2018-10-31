@@ -65,7 +65,7 @@
                                         <button class="btn btn-warning btn-minus-product-quantity" onclick="minusProductQuantityToCart(event,@item.BookId)">
                                             -
                                         </button>
-                                        <input type="text" class="text-center txt-product-quantity" value="@item.Quantity" id="id_quantity_@item.BookId" onkeyup="editQuantityOfCart(this,@item.BookId)">
+                                        <input type="text" class="text-center txt-product-quantity" value="@item.Quantity" id="id_quantity_@item.BookId" onkeyup="return editQuantityOfCart(this,@item.BookId)" onkeypress="checkValidNum(event)">
                                         <button class="btn btn-info btn-add-more-product-quantity" onclick="addMoreProductQuantityToCart(event,@item.BookId)">
                                             +
                                         </button>
