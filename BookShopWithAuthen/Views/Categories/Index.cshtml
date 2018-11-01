@@ -9,17 +9,18 @@
 {
     <div class="form-group ml-3">
         @Html.DropDownListFor(model => model.ID, (SelectList)ViewBag.categoryID, "All", htmlAttributes: new { @class = "form-control" })
-        @Html.TextBoxFor(model => model.SearchValue, htmlAttributes: new { @class = "form-control", style = "width:30%", id="id_searchTextBox" })
+        @Html.TextBoxFor(model => model.SearchValue, htmlAttributes: new { @class = "form-control", style = "width:30%", id = "id_searchTextBox" })
         @Html.HiddenFor(model => model.AuthorID, new { id = "id_hiddenAuthorID", @Value = "-1" })
         @Html.HiddenFor(model => model.PriceFrom, new { id = "id_hiddenPriceFrom", @Value = "0" })
         @Html.HiddenFor(model => model.PriceTo, new { id = "id_hiddenPriceTo", @Value = "700" })
         @Html.HiddenFor(model => model.sortBy, new { id = "id_hiddenSortBy", @Value = (int)sortType.orderByNew })
+        @Html.HiddenFor(model => model.Page, new { id = "id_hiddenPage", @Value = 1 })
         <button type="submit" class="btn btn-primary" id="id_submit">Search</button>
     </div>
 }
-    <div class="form-group form-inline ml-3 ">
-        @Html.DropDownListFor(model => model.sortBy, (SelectList)ViewBag.listSortType, htmlAttributes: new { @class = "form-control", id = "id_sortBy", @onchange = "submitForm()" })
-    </div>
+<div class="form-group form-inline ml-3 ">
+    @Html.DropDownListFor(model => model.sortBy, (SelectList)ViewBag.listSortType, htmlAttributes: new { @class = "form-control", id = "id_sortBy", @onchange = "submitForm()" })
+</div>
 <section class="py-2 bg-grey" style="margin-top: 5px">
     <div class="container-fluid">
         <div class="row">
@@ -107,6 +108,19 @@
                         }
 
                     </div>
+                    if (ViewBag.pageCount > 1)
+                    {
+                        <nav aria-label="..." class=" center-block text-center" >
+                            <ul class="pagination">
+                                @for (int i = 0; i < ViewBag.pageCount; i++)
+                                {
+                                    <li class="page-item">
+                                        <a style="font-weight:bold" class="page-link" href="#" onclick="submitForm(event)">@(i + 1)</a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    }
                 }
                 @if (ViewBag.allBooks.Count == 0)
                 {
@@ -122,12 +136,18 @@
 
 @section scripts{
     <script>
-        function submitForm() {
+        function submitForm(e) {
             var authorID = $("#id_authorID").val();
             $("#id_hiddenAuthorID").val(authorID);
             $("#id_hiddenPriceFrom").val($("#slider-range").slider("values", 0));
             $("#id_hiddenPriceTo").val($("#slider-range").slider("values", 1));
             $("#id_hiddenSortBy").val($("#id_sortBy").val());
+            if (e == null) {
+                $("#id_hiddenPage").val(1);
+            }
+            else {
+                $("#id_hiddenPage").val($(e.target).text());
+            }
             $("#id_submit").click();
         }
     </script>
@@ -154,7 +174,7 @@
 
 }
 @section css{
-    
+
 }
 
 

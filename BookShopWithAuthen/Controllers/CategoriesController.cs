@@ -22,6 +22,7 @@ namespace BookShopWithAuthen.Controllers
         // GET: Categories
         public ActionResult Index(SearchCategoryModel searchCategoryModel)
         {
+            int pageSize = 10;
             //get select list of Author ID
             ViewBag.authorIDList = _authorService.getSelectListOfAuthor();
             // get list of category
@@ -32,7 +33,12 @@ namespace BookShopWithAuthen.Controllers
             ViewBag.listSortType = _bookService.GetSelectListSortBy();
             // get all books
             // ID = -1 get books of all category
-            ViewBag.allBooks = _bookService.FindAllBooksOfSearch(searchCategoryModel);
+            var allWarehouseBooks = _bookService.FindAllBooksOfSearch(searchCategoryModel);
+            ViewBag.pageCount = Math.Ceiling(allWarehouseBooks.Count() / (pageSize*1.0));
+            int startIndex = pageSize * (searchCategoryModel.Page - 1);
+
+
+            ViewBag.allBooks = _bookService.FindAllBooksOfSearch(searchCategoryModel).Skip(startIndex).Take(pageSize).ToList();
             return View(searchCategoryModel);
         }
     }

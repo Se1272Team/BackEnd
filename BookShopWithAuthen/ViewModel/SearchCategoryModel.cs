@@ -8,8 +8,10 @@
         public float PriceTo { get; set; }
         public int AuthorID { get; set; }
         public int sortBy { get; set; }
+        public int Page { get; set; }
         public SearchCategoryModel()
         {
+            Page = 1;
             sortBy = (int)sortType.orderByNew;
             SearchValue = "";
             ID = -1;

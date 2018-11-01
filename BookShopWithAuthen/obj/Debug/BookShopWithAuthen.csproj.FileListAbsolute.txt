@@ -390,3 +390,7 @@ D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\Razor
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.dll
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.pdb
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\obj\Debug\BookShopWithAuthen.csprojAssemblyReference.cache
+D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\PagedList.dll
+D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\PagedList.Mvc.dll
+D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\PagedList.xml
+D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen\bin\PagedList.Mvc.xml
