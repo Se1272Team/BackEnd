@@ -34,8 +34,10 @@
 
 
                 <ul class="nav-menu">
+                  
                     <a href="@Url.Action("Index","Cart")"><i class="fas fa-shopping-cart " style="color: aliceblue; font-size: 2em"></i></a>
-                    <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+                    <li>@Html.ActionLink("Trang chủ", "Index", "HomePage")</li>
+                    <li>@Html.ActionLink("Danh mục", "Index", "Categories")</li>
                     @Html.Partial("_LoginPartial")
                 </ul>
 

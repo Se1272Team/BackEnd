@@ -16,7 +16,7 @@ namespace BookShopWithAuthen.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Categories", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "HomePage", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

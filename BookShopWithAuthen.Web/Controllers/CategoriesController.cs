@@ -50,7 +50,7 @@ namespace BookShopWithAuthen.Web.Controllers
                 { "Thứ tự theo giá: Thấp đến cao", (int)sortType.orderByPriceLow },
                 { "Thứ tự theo sản phẩm mới", (int)sortType.orderByNew },
                 { "Thứ tự theo mua nhiều", (int)sortType.orderBySell },
-                { "Thứ tự theo đánh giá", (int)sortType.orderByRate }
+                //{ "Thứ tự theo đánh giá", (int)sortType.orderByRate }
             };
             List<SelectListItem> selectListItemsOrderBy = new List<SelectListItem>();
             foreach (KeyValuePair<string, int> entry in dicSortType)
@@ -73,6 +73,9 @@ namespace BookShopWithAuthen.Web.Controllers
                     break;
                 case (int)sortType.orderByPriceLow:
                     allWarehouseBooks = allWarehouseBooks.OrderBy(b => b.Price);
+                    break;
+                case (int)sortType.orderBySell:
+                    allWarehouseBooks = bookService.GetBestSellerBooks(allWarehouseBooks, DateTime.MinValue, DateTime.Today);
                     break;
 
             }

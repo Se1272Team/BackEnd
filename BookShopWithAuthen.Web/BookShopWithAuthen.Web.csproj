@@ -55,6 +55,9 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -222,9 +225,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -297,10 +302,13 @@
     <Compile Include="ViewModel\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ErrorRef\css\style.css" />
+    <Content Include="Content\ErrorRef\img\bg.jpg" />
     <Content Include="Content\FrontEndRef\contactform\contactform.js" />
     <Content Include="Content\FrontEndRef\contactform\Readme.txt" />
     <Content Include="Content\FrontEndRef\css\main.css" />
@@ -339,7 +347,7 @@
     <Content Include="Content\FrontEndRef\img\intro-carousel\2.jpg" />
     <Content Include="Content\FrontEndRef\img\intro-carousel\3.jpg" />
     <Content Include="Content\FrontEndRef\img\intro-carousel\4.jpg" />
-    <Content Include="Content\FrontEndRef\img\intro-carousel\5.jpg" />
+    <Content Include="Content\FrontEndRef\img\intro-carousel\5.png" />
     <Content Include="Content\FrontEndRef\img\mo-ta-sach-img.jpg" />
     <Content Include="Content\FrontEndRef\img\mua-ngay-sach.jpg" />
     <Content Include="Content\FrontEndRef\img\muc-luc-quang-ganh-lo-di-1.jpg" />
@@ -973,6 +981,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\ManageBook\" />
   </ItemGroup>
   <ItemGroup>
