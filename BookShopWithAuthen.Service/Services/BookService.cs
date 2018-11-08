@@ -3,7 +3,9 @@ using BookShopWithAuthen.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Linq.SqlClient;
 namespace BookShopWithAuthen.Service.Services
+
 {
     public interface IBookService
     {
@@ -13,6 +15,7 @@ namespace BookShopWithAuthen.Service.Services
         IEnumerable<Book> GetBooksSameCategory(int limit, int categoryID);
         Book GetByID(int ID);
         void UpdateQuantityBook(int bookID, int newQuantity);
+        IEnumerable<Book> SearchBookBySearchValue(IEnumerable<Book> oldList, string searchValue);
         IEnumerable<Book> GetBestSellerBooks(IEnumerable<Book> oldList,DateTime fromDate, DateTime toDate);
         IEnumerable<Book> GetBestSellerBooksOfACategory(int categoryID, DateTime fromDate, DateTime toDate, int? limit);
 
@@ -96,7 +99,8 @@ namespace BookShopWithAuthen.Service.Services
                            select b;
             if (!string.IsNullOrEmpty(searchValue))
             {
-                allBooks = allBooks.Where(b => b.Name.Contains(searchValue));
+
+                allBooks = SearchBookBySearchValue(allBooks, searchValue);
             }
             if (categoryID != -1)
             {
@@ -117,6 +121,14 @@ namespace BookShopWithAuthen.Service.Services
         public Book GetByID(int ID)
         {
             return _bookRepository.GetById(ID);
+        }
+
+        public IEnumerable<Book> SearchBookBySearchValue(IEnumerable<Book> oldList, string searchValue)
+        {
+           var searchList = _bookRepository.GetMany(b => b.Name.Contains(searchValue));
+            return from b1 in oldList
+                   join b2 in searchList on b1.ID equals b2.ID
+                   select b1;
         }
 
         public void UpdateQuantityBook(int bookID, int newQuantity)
