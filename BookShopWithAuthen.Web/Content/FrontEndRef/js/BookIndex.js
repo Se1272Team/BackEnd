@@ -30,7 +30,15 @@ function addItemToCart(bookID) {
         type: 'POST',
         url: 'Cart/AddToCart',
         data: { bookID: bookID},
-        success: function () {
+        success: function (data) {
+            if (data.result == false) {
+                window.location.href = data.redirect;
+            }
+            if (data.result == true) {
+                if (data.maxQuantity == true) {
+                    alert("Số lượng sách mua tối đa là 20 quyển sách");
+                }
+            }
         },
         error: function (ex) {
             alert(ex);

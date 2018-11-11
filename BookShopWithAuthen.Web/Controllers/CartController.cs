@@ -71,76 +71,114 @@ namespace BookShopWithAuthen.Web.Controllers
         [HttpPost]
         public ActionResult Checkout(ShippingDetailViewModel shippingDetailViewModel)
         {
-            string userId = User.Identity.GetUserId();
-            IEnumerable<CartDetail> cartDetails = cartService.GetByUserID(userId);
-            IEnumerable<Book> books = bookService.GetAll();
-            // Kiem tra tinh hop le cua gio hang
-            bool flagValid = true;
-            foreach (var cartDetail in cartDetails)
+            if (ModelState.IsValid)
             {
-                Book tmpBook = cartDetail.Book;
-                int wareHouseQuantity = (int)bookService.GetByID(tmpBook.ID).Quantity;
-                if (cartDetail.Quantity > wareHouseQuantity)
+                string userId = User.Identity.GetUserId();
+                IEnumerable<CartDetail> cartDetails = cartService.GetByUserID(userId);
+                IEnumerable<Book> books = bookService.GetAll();
+                // Kiem tra tinh hop le cua gio hang
+                bool flagValid = true;
+                foreach (var cartDetail in cartDetails)
                 {
-                    cartDetail.Quantity = wareHouseQuantity;
-                    cartService.UpdateCartDetail(cartDetail);
-                    flagValid = false;
+                    Book tmpBook = cartDetail.Book;
+                    int wareHouseQuantity = (int)bookService.GetByID(tmpBook.ID).Quantity;
+                    if (cartDetail.Quantity > wareHouseQuantity)
+                    {
+                        cartDetail.Quantity = wareHouseQuantity;
+                        cartService.UpdateCartDetail(cartDetail);
+                        flagValid = false;
+                    }
                 }
+                if (flagValid == false)
+                {
+                    TempData["errorMessage"] = "Một số sách bạn đặt có số lượng không đủ, chúng tôi đã cập nhật " +
+                        " lại số lượng sách của vài sản phẩm trong giỏ hàng, mời bạn xem và đặt hàng lại";
+                    return RedirectToAction("Index");
+                }
+                // Neu hop le
+                // create order and orderDetail and update book quantity
+                int totalMoney = cartService.GetTotalMoney(User.Identity.GetUserId());
+                Order order = Mapper.Map<Order>(shippingDetailViewModel);
+                order.UserId = userId;
+                order.Status = (int)StatusOrder.New;
+                order.OrderDate = DateTime.Today;
+                order.Amount = totalMoney;
+                orderService.CreateOrder(order);
+
+
+
+
+                // send mail to customer
+                string subject = "Notification about your order at DTBook";
+                ICollection<OrderDetailViewModel> orderDetailViewModels = new List<OrderDetailViewModel>();
+                var orderDetails = order.OrderDetails;
+                foreach (var item in orderDetails)
+                {
+                    OrderDetailViewModel tmpOrDeViewModel = Mapper.Map<OrderDetailViewModel>(item);
+                    orderDetailViewModels.Add(tmpOrDeViewModel);
+                }
+                var model = new OrderConfirmEmailModel()
+                {
+                    Order = order,
+                    OrderDetailViewModels = orderDetailViewModels
+                };
+                var path = Path.Combine(Server.MapPath("~/Helpers/EmailTemplate"), "OrderConfirmTemplate.cshtml");
+                var templateSerivce = new TemplateService();
+                try
+                {
+                    string emailHtmlBody = templateSerivce.Parse(System.IO.File.ReadAllText(path), model, null, null);
+                    OtherService.SendMail(shippingDetailViewModel.Email, subject, emailHtmlBody);
+                }
+                catch (Exception ex)
+                {
+                    Debug.Write("This is inner exeption: " + ex.Message);
+                    Debug.Write("This is inner exeption: " + ex.InnerException);
+                }
+                return View();
             }
-            if (flagValid == false)
+            else
             {
-                TempData["errorMessage"] = "Một số sách bạn đặt có số lượng không đủ, chúng tôi đã cập nhật " +
-                    " lại số lượng sách của vài sản phẩm trong giỏ hàng, mời bạn xem và đặt hàng lại";
+                string errorMessage = "";
+                foreach (ModelState modelState in ViewData.ModelState.Values)
+                {
+                    foreach (ModelError error in modelState.Errors)
+                    {
+                        errorMessage += error.ErrorMessage + "<br />";
+                    }
+                }
+                TempData["errorMessage"] = errorMessage;
+
                 return RedirectToAction("Index");
             }
-            // Neu hop le
-            // create order and orderDetail and update book quantity
-            int totalMoney = cartService.GetTotalMoney(User.Identity.GetUserId());
-            Order order = Mapper.Map<Order>(shippingDetailViewModel);
-            order.UserId = userId;
-            order.Status = (int)StatusOrder.New;
-            order.OrderDate = DateTime.Today;
-            order.Amount = totalMoney;
-            orderService.CreateOrder(order);
             
-
-
-
-            // send mail to customer
-            string subject = "Notification about your order at DTBook";
-            ICollection<OrderDetailViewModel> orderDetailViewModels = new List<OrderDetailViewModel>();
-            var orderDetails = order.OrderDetails;
-            foreach (var item in orderDetails)
-            {
-                OrderDetailViewModel tmpOrDeViewModel = Mapper.Map<OrderDetailViewModel>(item);
-                orderDetailViewModels.Add(tmpOrDeViewModel);
-            }
-            var model = new OrderConfirmEmailModel()
-            {
-                Order = order,
-                OrderDetailViewModels = orderDetailViewModels
-            };
-            var path = Path.Combine(Server.MapPath("~/Helpers/EmailTemplate"), "OrderConfirmTemplate.cshtml");
-            var templateSerivce = new TemplateService();
-            try
-            {
-                string emailHtmlBody = templateSerivce.Parse(System.IO.File.ReadAllText(path), model, null, null);
-                OtherService.SendMail(shippingDetailViewModel.Email, subject, emailHtmlBody);
-            }
-            catch (Exception ex)
-            {
-                Debug.Write("This is inner exeption: " + ex.Message);
-                Debug.Write("This is inner exeption: " + ex.InnerException);
-            }
-            return View();
         }
+
+        [AllowAnonymous]
         [HttpPost]
-        public void AddToCart(int bookID)
+        public JsonResult AddToCart(int bookID)
         {
-            string userID = User.Identity.GetUserId();
-            cartService.AddItemToCart(userID, bookID);
+            bool result = true;
+            string redirect = "";
+            bool maxQuantity = true;
+            if (!User.Identity.IsAuthenticated)
+            {
+                result = false;
+                redirect = "/Account/Login?returnUrl=/Cart";
+            }
+            else
+            {
+                int quantity = cartService.GetQuanity(User.Identity.GetUserId(), bookID);
+                if (quantity <= 19)
+                {
+                    string userID = User.Identity.GetUserId();
+                    cartService.AddItemToCart(userID, bookID);
+                    maxQuantity = false;
+                }
+                
+            }
+            return Json(new { result = result, redirect = redirect, maxQuantity = maxQuantity });
+            
         }
-
 
         [HttpPost]
         public JsonResult changeQuantity(int bookID, int quantity)

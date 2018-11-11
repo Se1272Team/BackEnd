@@ -13,6 +13,7 @@ namespace BookShopWithAuthen.Service.Services
         void RemoveCartDetail(string userID, int bookID);
         void UpdateCartDetail(CartDetail cartDetail);
         void AddItemToCart(string userID, int bookID, int quantity = 1);
+        int GetQuanity(string userID, int bookID);
 
     }
 
@@ -79,6 +80,11 @@ namespace BookShopWithAuthen.Service.Services
         public IEnumerable<CartDetail> GetByUserID(string userID)
         {
             return _cartDetailRepository.GetMany(cd => cd.UserID.Equals(userID));
+        }
+
+        public int GetQuanity(string userID, int bookID)
+        {
+            return _cartDetailRepository.Get(c => c.UserID.Equals(userID) && c.BookID.Equals(bookID)).Quantity;
         }
 
         public int GetTotalMoney(string userID)

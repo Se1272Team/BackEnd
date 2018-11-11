@@ -46,9 +46,9 @@
 }
 <section class="my-5" style="margin-top: 50px">
     <div class="container">
-        <h3 style="color: red">@ViewBag.errorMessage</h3>
-        @*@if (listCartItems.Count != 0)
-            {*@
+        <h3 style="color: red">@Html.Raw(ViewBag.errorMessage)</h3>
+        @if (listCartItems.Count != 0)
+        {
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead>
@@ -101,12 +101,12 @@
         </div>
         <a href="#" class="btn btn-success btn-order pull-right mt-3">Tiến hành đặt hàng</a>
         <a href="@Url.Action("Index", "Categories")" class="btn btn-success pull-right mt-3 mr-3">Tiếp tục mua sắm</a>
-        @*}
-            else
-            {
-                <h3>Không có sản phầm nào trong giỏ hàng</h3>
-                <a href="@Url.Action("Index","Categories")" class="btn btn-success mt-3 mr-3">Tiếp tục mua sắm</a>
-            }*@
+        }
+        else
+        {
+            <h3>Không có sản phầm nào trong giỏ hàng</h3>
+            <a href="@Url.Action("Index","Categories")" class="btn btn-success mt-3 mr-3">Tiếp tục mua sắm</a>
+        }
     </div>
     <div class="clearfix"></div>
 </section>
