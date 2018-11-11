@@ -84,6 +84,11 @@ namespace BookShopWithAuthen.Service.Services
 
         public int GetQuanity(string userID, int bookID)
         {
+            CartDetail cartDetail = _cartDetailRepository.Get(c => c.UserID.Equals(userID) && c.BookID.Equals(bookID));
+            if (cartDetail == null)
+            {
+                return 0;
+            }
             return _cartDetailRepository.Get(c => c.UserID.Equals(userID) && c.BookID.Equals(bookID)).Quantity;
         }
 
