@@ -159,3 +159,4 @@ D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen.Web\obj\D
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen.Web\obj\Debug\BookShopWithAuthen.Web.dll
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen.Web\obj\Debug\BookShopWithAuthen.Web.pdb
 D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen.Web\bin\Elmah.dll
+D:\fptTerm\term5\Csharp_dotnet\FinalProject\BackEnd\BookShopWithAuthen.Web\bin\Elmah.xml
